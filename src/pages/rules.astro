@@ -1,30 +1,166 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { rulesSummary } from '../config/site';
 ---
 
 <Layout title="Rules & Contest Integrity // DHPMCC">
   <section id="rules" class="content-container rules-section">
-    <h1 class="page-title">Rules &amp; Contest Integrity</h1>
-    <p class="page-subtitle"><em>Essential guidelines governing eligibility, fair play, and automated scoring.</em></p>
+    <header class="rules-header">
+      <h1 class="page-title">Rules &amp; Contest Integrity</h1>
+      <p class="page-subtitle"><em>Essential guidelines governing eligibility, fair play, submissions, and automated scoring.</em></p>
+    </header>
 
-    <p class="rules-intro">
-      DHPMCC is conducted under strict competitive programming regulations. Competitors are expected to read and adhere to all contest conduct guidelines.
-    </p>
+    <div class="rules-preamble">
+      <p>
+        DHPMCC is conducted under strict competitive programming regulations. Competitors are expected to read and adhere to all contest conduct guidelines before beginning the competition.
+      </p>
+    </div>
 
-    <ol class="rules-list">
-      {rulesSummary.map((rule) => (
-        <li class="rule-item">
-          <strong class="rule-topic">{rule.topic}:</strong> {rule.summary}
-        </li>
-      ))}
-    </ol>
+    <nav class="rules-toc" aria-label="Table of Contents">
+      <span class="toc-label">Jump to section:</span>
+      <ul class="toc-list">
+        <li><a href="#eligibility">Eligibility &amp; Participation</a></li>
+        <li><a href="#timing">Contest Timing</a></li>
+        <li><a href="#assistance">Allowed Assistance &amp; Resources</a></li>
+        <li><a href="#languages">Supported Languages &amp; Tools</a></li>
+        <li><a href="#io">Input &amp; Output</a></li>
+        <li><a href="#judging">Submissions &amp; Judging</a></li>
+        <li><a href="#integrity">Contest Integrity &amp; Security</a></li>
+        <li><a href="#problems">Problem Integrity</a></li>
+        <li><a href="#disqualification">Disqualification</a></li>
+      </ul>
+    </nav>
+
+    <div class="rules-body">
+      <section id="eligibility" class="rule-block">
+        <h2 class="rule-section-title">Eligibility &amp; Participation</h2>
+        <ul class="rule-list">
+          <li><strong>Individual Competition:</strong> DHPMCC is an individual competition. Each competitor must work independently and may not receive assistance from another competitor, coach, teacher, parent, or other person during the contest.</li>
+          <li><strong>One Contestant, One Account:</strong> Each competitor may participate using only their own registered contest account. Sharing accounts or credentials is prohibited.</li>
+          <li><strong>Contest Registration:</strong> Competitors must register before the stated registration deadline and provide accurate information.</li>
+          <li><strong>Division Eligibility:</strong> Competitors must compete in the division corresponding to their grade level as defined by the official DHPMCC rules. Competitors may not intentionally enter a different division to gain a competitive advantage.</li>
+        </ul>
+      </section>
+
+      <section id="timing" class="rule-block">
+        <h2 class="rule-section-title">Contest Timing</h2>
+        <ul class="rule-list">
+          <li><strong>Contest Window:</strong> The competition runs within a strictly monitored, synchronized time window.</li>
+          <li><strong>Official Clock:</strong> The live contest clock displayed on the contest platform is the authoritative source for the contest start and end times.</li>
+          <li><strong>Late Submissions:</strong> No submissions will be accepted after the contest termination signal.</li>
+          <li><strong>Early Start:</strong> Competitors may not access contest problems or begin working before the official start time.</li>
+          <li><strong>Breaks:</strong> Competitors may take breaks as permitted by the contest environment, but the contest clock will continue running.</li>
+          <li><strong>Technical Issues:</strong> Competitors should report technical problems to contest staff as soon as they occur. Technical difficulties do not automatically extend the contest window.</li>
+        </ul>
+      </section>
+
+      <section id="assistance" class="rule-block">
+        <h2 class="rule-section-title">Allowed Assistance &amp; Resources</h2>
+        <ul class="rule-list">
+          <li><strong>Independent Work:</strong> All submitted solutions must be conceived and written entirely by the competitor during the contest window.</li>
+          <li><strong>Prohibited Collaboration:</strong> Discussing problems, algorithms, test cases, code, or solutions with other people during the contest is prohibited.</li>
+          <li><strong>External Assistance:</strong> Competitors may not use another person or an external service to solve, debug, optimize, or generate contest solutions.</li>
+          <li><strong>AI &amp; Code Generation:</strong> AI assistants, code-generation tools, and automated problem-solving systems are prohibited unless the contest organizers explicitly announce otherwise.</li>
+          <li><strong>Solution Sharing:</strong> Competitors may not publish, transmit, or otherwise share contest problems, solutions, or substantial portions of their work with other competitors during the contest.</li>
+          <li><strong>Permitted References:</strong> Officially permitted documentation and language references may be used if explicitly allowed by the contest organizers. Contest-specific restrictions take precedence over general platform capabilities.</li>
+        </ul>
+      </section>
+
+      <section id="languages" class="rule-block">
+        <h2 class="rule-section-title">Supported Languages &amp; Tools</h2>
+        <ul class="rule-list">
+          <li><strong>Supported Languages:</strong> Participants may submit solutions in C, C++17, Java, or Python 3.12.</li>
+          <li><strong>Standard Libraries:</strong> Solutions may use the standard libraries provided by their selected language.</li>
+          <li><strong>Third-Party Packages:</strong> Third-party packages and libraries are not permitted unless explicitly provided or authorized by the contest organizers.</li>
+          <li><strong>Network Access:</strong> Contest programs may not make external network requests. Network access is blocked within the judging environment.</li>
+          <li><strong>Compiler &amp; Runtime:</strong> Submissions are compiled and executed using the contest platform’s official judging environment. Competitors should not rely on compiler-specific behavior outside the stated language specifications.</li>
+        </ul>
+      </section>
+
+      <section id="io" class="rule-block">
+        <h2 class="rule-section-title">Input &amp; Output</h2>
+        <ul class="rule-list">
+          <li><strong>Standard Input:</strong> Problems read input from standard input (stdin).</li>
+          <li><strong>Standard Output:</strong> Solutions must write their answers to standard output (stdout).</li>
+          <li><strong>No File I/O:</strong> Reading from or writing to files is prohibited unless a problem explicitly states otherwise.</li>
+          <li><strong>Output Format:</strong> Output must follow the exact format specified in the problem statement.</li>
+          <li><strong>Debug Output:</strong> Additional output, including debugging messages, may cause a submission to receive a Wrong Answer verdict.</li>
+          <li><strong>Whitespace:</strong> Unless the problem statement specifies otherwise, output should contain only the requested information.</li>
+        </ul>
+      </section>
+
+      <section id="judging" class="rule-block">
+        <h2 class="rule-section-title">Submissions &amp; Judging</h2>
+        <ul class="rule-list">
+          <li><strong>Automated Judging:</strong> Every submission is evaluated automatically against the official test suite.</li>
+          <li><strong>Submission Limits:</strong> If a problem has a submission limit, exceeding that limit is prohibited and additional submissions will not be accepted.</li>
+          <li><strong>Independent Evaluation:</strong> Each submission is judged independently. A previous submission’s verdict does not guarantee anything about subsequent submissions.</li>
+          <li>
+            <strong>Verdicts:</strong> Possible verdicts include:
+            <ul class="verdicts-sublist">
+              <li><strong>Accepted (AC):</strong> The solution passed all required tests.</li>
+              <li><strong>Wrong Answer (WA):</strong> The output was incorrect for one or more tests.</li>
+              <li><strong>Time Limit Exceeded (TLE):</strong> The program exceeded the permitted execution time.</li>
+              <li><strong>Memory Limit Exceeded (MLE):</strong> The program exceeded the permitted memory limit.</li>
+              <li><strong>Runtime Error (RTE):</strong> The program terminated unexpectedly during execution.</li>
+              <li><strong>Compilation Error (CE):</strong> The submission could not be compiled successfully.</li>
+            </ul>
+          </li>
+          <li><strong>Hidden Tests:</strong> Competitors should assume that official tests may include cases not shown in the sample input.</li>
+          <li><strong>Judge Data:</strong> Official test data, expected outputs, and judging infrastructure are not available to competitors.</li>
+        </ul>
+      </section>
+
+      <section id="integrity" class="rule-block">
+        <h2 class="rule-section-title">Contest Integrity &amp; Security</h2>
+        <ul class="rule-list">
+          <li><strong>Academic Integrity:</strong> Competitors are expected to uphold the standards of academic integrity established by Bergen County Academies.</li>
+          <li><strong>No Screen Sharing or Observation:</strong> Competitors may not view another competitor’s screen, code, submissions, or contest activity.</li>
+          <li><strong>No Unauthorized Devices:</strong> Competitors may not use additional computers, phones, tablets, or other devices for prohibited assistance.</li>
+          <li><strong>Judge Manipulation:</strong> Attempting to exploit, modify, interfere with, or tamper with the judging system or contest infrastructure is strictly prohibited.</li>
+          <li><strong>Platform Exploitation:</strong> Deliberately exploiting vulnerabilities in the contest platform, judge, or infrastructure to obtain an unfair advantage is prohibited.</li>
+          <li><strong>Credential Security:</strong> Competitors are responsible for keeping their contest credentials private.</li>
+          <li><strong>Impersonation:</strong> Submitting work under another competitor’s account or allowing another person to submit on one’s behalf is prohibited.</li>
+        </ul>
+      </section>
+
+      <section id="problems" class="rule-block">
+        <h2 class="rule-section-title">Problem Integrity</h2>
+        <ul class="rule-list">
+          <li><strong>Confidentiality:</strong> Contest problems and materials must not be shared with competitors who have not yet begun or completed the contest, as applicable.</li>
+          <li><strong>No Early Access:</strong> Accessing leaked, improperly distributed, or otherwise unauthorized contest materials before the official contest time is prohibited.</li>
+          <li><strong>Problem Clarifications:</strong> Questions about a problem’s interpretation should be directed only through the official contest communication channel.</li>
+          <li><strong>Official Clarifications:</strong> If organizers issue a clarification or correction, it applies to all competitors and supersedes conflicting information in the original statement.</li>
+        </ul>
+      </section>
+
+      <section id="disqualification" class="rule-block disqualification-block">
+        <h2 class="rule-section-title">Disqualification</h2>
+        <p class="disqualification-intro">A competitor may be disqualified for:</p>
+        <ul class="rule-list disqualification-list">
+          <li>Unauthorized collaboration or assistance.</li>
+          <li>Use of prohibited external resources or AI tools.</li>
+          <li>Sharing solutions or contest materials during the contest.</li>
+          <li>Using another competitor’s account.</li>
+          <li>Tampering with judging or contest infrastructure.</li>
+          <li>Attempting to obtain unauthorized access to contest data.</li>
+          <li>Deliberately disrupting the contest for other competitors.</li>
+          <li>Any other conduct determined by contest officials to provide an unfair competitive advantage.</li>
+        </ul>
+        <div class="disqualification-notice">
+          <p>Contest officials reserve the right to investigate suspicious submissions or activity and make final determinations regarding rule violations and disqualification.</p>
+        </div>
+      </section>
+    </div>
   </section>
 </Layout>
 
 <style>
   .rules-section {
     padding-top: 0.5rem;
+  }
+
+  .rules-header {
+    margin-bottom: 1.5rem;
   }
 
   .page-title {
@@ -37,29 +173,136 @@ import { rulesSummary } from '../config/site';
   .page-subtitle {
     color: #555555;
     font-size: 1rem;
-    margin: 0 0 1.5rem 0;
+    margin: 0;
   }
 
-  .rules-intro {
+  .rules-preamble {
     font-size: 1.02rem;
     line-height: 1.65;
     color: #2d3748;
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
   }
 
-  .rules-list {
-    padding-left: 1.5rem;
-    margin: 1.5rem 0;
+  .rules-preamble p {
+    margin: 0;
   }
 
-  .rule-item {
-    margin-bottom: 1.25rem;
-    font-size: 1rem;
+  .rules-toc {
+    background-color: var(--color-bg-subtle);
+    border: 1px solid var(--color-border);
+    padding: 0.85rem 1.15rem;
+    border-radius: 4px;
+    margin-bottom: 2rem;
+    font-size: 0.92rem;
+  }
+
+  .toc-label {
+    font-weight: 600;
+    color: #111111;
+    display: inline-block;
+    margin-bottom: 0.35rem;
+  }
+
+  .toc-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .toc-list li {
+    margin: 0;
+  }
+
+  .toc-list a {
+    color: var(--color-link);
+    text-decoration: none;
+  }
+
+  .toc-list a:hover {
+    text-decoration: underline;
+    color: var(--color-link-hover);
+  }
+
+  .rules-body {
+    display: flex;
+    flex-direction: column;
+    gap: 2.25rem;
+  }
+
+  .rule-block {
+    scroll-margin-top: 1.5rem;
+  }
+
+  .rule-section-title {
+    font-size: 1.28rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 0.75rem 0;
+    padding-bottom: 0.35rem;
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .rule-list {
+    list-style-type: disc;
+    padding-left: 1.4rem;
+    margin: 0.5rem 0 0 0;
+  }
+
+  .rule-list > li {
+    font-size: 0.98rem;
     line-height: 1.65;
+    color: #2d3748;
+    margin-bottom: 0.65rem;
+  }
+
+  .rule-list > li strong {
+    color: #111111;
+  }
+
+  .verdicts-sublist {
+    list-style-type: circle;
+    padding-left: 1.4rem;
+    margin: 0.4rem 0 0.2rem 0;
+  }
+
+  .verdicts-sublist li {
+    margin-bottom: 0.35rem;
+    line-height: 1.55;
+  }
+
+  .disqualification-intro {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #2d3748;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .disqualification-list {
+    margin-bottom: 1.25rem;
+  }
+
+  .disqualification-notice {
+    background-color: #fdf8f8;
+    border-left: 3px solid #8b0000;
+    padding: 0.85rem 1.15rem;
+    border-radius: 0 4px 4px 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
     color: #2d3748;
   }
 
-  .rule-topic {
-    color: #111111;
+  .disqualification-notice p {
+    margin: 0;
+    font-style: italic;
+  }
+
+  @media (max-width: 600px) {
+    .toc-list {
+      flex-direction: column;
+      gap: 0.3rem;
+    }
   }
 </style>

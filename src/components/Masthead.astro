@@ -2,19 +2,271 @@
 import { siteConfig } from '../config/site';
 ---
 
-<section id="top">
-  <p>DHPMCC // {siteConfig.year}</p>
+<section id="top" class="hero-section">
+  <!-- Full-Width Scrolling Photo Gallery (JHMMC Style with Direct Text Overlay) -->
+  <div class="gallery-container" aria-label="Competition Banner">
+    <div class="gallery-track">
+      <div class="gallery-slide active" style="--bg-image: url('/images/slide1.jpg');">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
+            <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
+            <p class="slide-tagline">{siteConfig.tagline}</p>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-slide" style="--bg-image: url('/images/slide2.jpg');">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
+            <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
+            <p class="slide-tagline">{siteConfig.tagline}</p>
+          </div>
+        </div>
+      </div>
+      <div class="gallery-slide" style="--bg-image: url('/images/slide3.jpg');">
+        <div class="slide-overlay">
+          <div class="slide-content">
+            <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
+            <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
+            <p class="slide-tagline">{siteConfig.tagline}</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <h1>Daniel H. Plotnick Memorial Computing Competition</h1>
+    <!-- Carousel dot indicators (JHMMC style) -->
+    <div class="gallery-dots" role="tablist" aria-label="Gallery slide controls">
+      <button class="dot active" type="button" aria-label="Slide 1" data-index="0"></button>
+      <button class="dot" type="button" aria-label="Slide 2" data-index="1"></button>
+      <button class="dot" type="button" aria-label="Slide 3" data-index="2"></button>
+    </div>
+  </div>
 
-  <p>{siteConfig.tagline}</p>
+  <!-- Contest Details Row (Contained, clean, non-carded) -->
+  <div class="content-container hero-meta-container">
+    <ul class="hero-meta">
+      <li><strong>Date:</strong> {siteConfig.date}</li>
+      <li><strong>Location:</strong> {siteConfig.location} ({siteConfig.venueDetail})</li>
+    </ul>
 
-  <ul>
-    <li><strong>Date:</strong> {siteConfig.date}</li>
-    <li><strong>Location:</strong> {siteConfig.location} ({siteConfig.venueDetail})</li>
-  </ul>
-
-  <p>
-    <a href={siteConfig.registrationUrl}>Register</a> | <a href="#about">Learn more</a>
-  </p>
+    <p class="hero-actions">
+      <a href={siteConfig.registrationUrl}>Register</a> | <a href="#about">Learn more</a>
+    </p>
+  </div>
 </section>
+
+<script>
+  const slides = document.querySelectorAll('.gallery-slide');
+  const dots = document.querySelectorAll('.gallery-dots .dot');
+  let currentIndex = 0;
+  let intervalId: ReturnType<typeof setInterval>;
+
+  function showSlide(index: number) {
+    if (!slides.length) return;
+    slides.forEach((slide, i) => {
+      slide.classList.toggle('active', i === index);
+    });
+    dots.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+    currentIndex = index;
+  }
+
+  function nextSlide() {
+    const next = (currentIndex + 1) % slides.length;
+    showSlide(next);
+  }
+
+  dots.forEach((dot) => {
+    dot.addEventListener('click', () => {
+      const idx = Number(dot.getAttribute('data-index'));
+      showSlide(idx);
+      resetAutoPlay();
+    });
+  });
+
+  function startAutoPlay() {
+    intervalId = setInterval(nextSlide, 5000);
+  }
+
+  function resetAutoPlay() {
+    clearInterval(intervalId);
+    startAutoPlay();
+  }
+
+  if (slides.length > 1) {
+    startAutoPlay();
+  }
+</script>
+
+<style>
+  .hero-section {
+    margin-bottom: 2rem;
+  }
+
+  /* Full-width JHMMC Banner Styling */
+  .gallery-container {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    background-color: #111418;
+    overflow: hidden;
+  }
+
+  .gallery-track {
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+  .gallery-slide {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.7s ease-in-out;
+    background-color: #1a1e24;
+    background-image: var(--bg-image, none), radial-gradient(circle at center, #2d3748 0%, #11151a 100%);
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+  }
+
+  .gallery-slide.active {
+    opacity: 1;
+    z-index: 1;
+  }
+
+  .slide-overlay {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(
+      to right,
+      rgba(0, 0, 0, 0.72) 0%,
+      rgba(0, 0, 0, 0.55) 50%,
+      rgba(0, 0, 0, 0.4) 100%
+    );
+  }
+
+  .slide-content {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    width: 100%;
+    color: #ffffff;
+  }
+
+  .slide-badge {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    color: #cbd5e0;
+    text-transform: uppercase;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .slide-title {
+    font-size: 2.35rem;
+    font-weight: 700;
+    color: #ffffff;
+    line-height: 1.18;
+    margin: 0 0 0.75rem 0;
+    letter-spacing: -0.015em;
+    max-width: 720px;
+  }
+
+  .slide-tagline {
+    font-size: 1.15rem;
+    color: #e2e8f0;
+    margin: 0;
+    line-height: 1.5;
+    max-width: 640px;
+  }
+
+  /* Dot controls at the bottom of the photo */
+  .gallery-dots {
+    position: absolute;
+    bottom: 1.15rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.6rem;
+    z-index: 2;
+  }
+
+  .dot {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(255, 255, 255, 0.35);
+    cursor: pointer;
+    padding: 0;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  .dot.active {
+    background-color: #48bb78; /* JHMMC signature green indicator */
+    transform: scale(1.2);
+  }
+
+  /* Contest details below the banner */
+  .hero-meta-container {
+    margin-top: 1.75rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+  }
+
+  .hero-meta {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+  }
+
+  .hero-meta li {
+    margin-bottom: 0.25rem;
+    color: #333333;
+    font-size: 0.98rem;
+  }
+
+  .hero-actions {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+
+  .hero-actions a {
+    font-weight: 600;
+    color: var(--color-link);
+  }
+
+  .hero-actions a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 720px) {
+    .gallery-container {
+      height: 320px;
+    }
+
+    .slide-title {
+      font-size: 1.65rem;
+    }
+
+    .slide-tagline {
+      font-size: 1rem;
+    }
+
+    .hero-meta-container {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+    }
+  }
+</style>

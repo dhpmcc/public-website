@@ -1,0 +1,63 @@
+---
+interface Props {
+  number: string;
+  title: string;
+  id?: string;
+  subtitle?: string;
+}
+
+const { number, title, id, subtitle } = Astro.props;
+---
+
+<div class="section-header-block" id={id}>
+  <div class="section-meta mono">
+    <span class="section-number">{number}</span>
+    <span class="section-divider-slash">/</span>
+    <span class="section-category">{title.toUpperCase()}</span>
+  </div>
+  <h2 class="section-title">{title}</h2>
+  {subtitle && <p class="section-subtitle">{subtitle}</p>}
+</div>
+
+<style>
+  .section-header-block {
+    margin-bottom: 1.5rem;
+    padding-top: 1rem;
+  }
+
+  .section-meta {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.08em;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .section-divider-slash {
+    color: var(--border-dark);
+  }
+
+  .section-title {
+    font-size: 1.45rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.015em;
+    line-height: 1.25;
+  }
+
+  .section-subtitle {
+    margin-top: 0.4rem;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    max-width: 65ch;
+  }
+
+  @media (max-width: 640px) {
+    .section-title {
+      font-size: 1.3rem;
+    }
+  }
+</style>

@@ -1,0 +1,116 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { rulesSummary, siteConfig } from '../config/site';
+---
+
+<section class="content-section" id="rules">
+  <SectionHeading
+    number="07"
+    title="Rules & Contest Integrity"
+    subtitle="Essential guidelines governing eligibility, fair play, and automated scoring."
+  />
+
+  <p class="rules-intro">
+    DHPMCC is conducted under strict competitive programming regulations. Competitors are expected to read and adhere to all contest conduct guidelines.
+  </p>
+
+  <div class="rules-list">
+    {rulesSummary.map((rule, idx) => (
+      <div class="rule-item">
+        <div class="rule-meta mono">
+          <span class="rule-index">RULE {String(idx + 1).padStart(2, '0')}</span>
+          <span class="rule-divider">/</span>
+          <span class="rule-topic">{rule.topic.toUpperCase()}</span>
+        </div>
+        <p class="rule-body">{rule.summary}</p>
+      </div>
+    ))}
+  </div>
+
+  <div class="rules-footer">
+    <a href={siteConfig.rulesUrl} class="mono rules-full-link">
+      Read the full contest rules &amp; honor code &rarr;
+    </a>
+    <span class="mono text-muted text-small">[OFFICIAL_RULES_DOC] — Comprehensive scoring formulas and editorial policy</span>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .rules-intro {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 75ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .rules-list {
+    border: 1px solid var(--border);
+    background-color: var(--bg-surface);
+  }
+
+  .rule-item {
+    padding: 1.15rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .rule-item:last-child {
+    border-bottom: none;
+  }
+
+  .rule-meta {
+    font-size: 0.76rem;
+    font-weight: 700;
+    margin-bottom: 0.45rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    letter-spacing: 0.05em;
+  }
+
+  .rule-index {
+    color: var(--accent);
+  }
+
+  .rule-divider {
+    color: var(--border-medium);
+  }
+
+  .rule-topic {
+    color: var(--text-main);
+  }
+
+  .rule-body {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .rules-footer {
+    margin-top: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .rules-full-link {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .rules-full-link:hover {
+    color: var(--accent-hover);
+  }
+
+  .text-small {
+    font-size: 0.78rem;
+  }
+</style>

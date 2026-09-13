@@ -2,20 +2,87 @@
 import { siteConfig } from '../config/site';
 ---
 
-<header>
-  <div>
-    <a href="/">
-      <strong>DHPMCC</strong> - Daniel H. Plotnick Memorial Computing Competition
-    </a>
-  </div>
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <a href="/">
+        <strong>DHPMCC</strong> - Daniel H. Plotnick Memorial Computing Competition
+      </a>
+    </div>
 
-  <nav>
-    <ul>
-      {siteConfig.navItems.map((item) => (
-        <li>
-          <a href={item.href}>{item.label}</a>
-        </li>
-      ))}
-    </ul>
-  </nav>
+    <nav aria-label="Main Navigation">
+      <ul class="nav-list">
+        {siteConfig.navItems.map((item) => (
+          <li>
+            <a href={item.href}>{item.label}</a>
+          </li>
+        ))}
+      </ul>
+    </nav>
+  </div>
 </header>
+
+<style>
+  .site-header {
+    border-bottom: 1px solid var(--color-border);
+    background-color: #ffffff;
+    width: 100%;
+  }
+
+  .header-inner {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 1.25rem 1.25rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .brand a {
+    color: #111111;
+    text-decoration: none;
+    font-size: 0.95rem;
+  }
+
+  .brand a:hover {
+    color: var(--color-link);
+    text-decoration: none;
+  }
+
+  .nav-list {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .nav-list li {
+    margin: 0;
+  }
+
+  .nav-list a {
+    color: #444444;
+    font-size: 0.95rem;
+    text-decoration: none;
+  }
+
+  .nav-list a:hover {
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 680px) {
+    .header-inner {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    .nav-list {
+      gap: 1.25rem;
+    }
+  }
+</style>

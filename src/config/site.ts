@@ -40,11 +40,8 @@ export const siteConfig: SiteConfig = {
   rulesUrl: "/rules",
   navItems: [
     { label: "Home", href: "/" },
-    { label: "About", href: "/#about" },
-    { label: "Languages", href: "/#languages" },
     { label: "Rules", href: "/rules" },
     { label: "FAQ", href: "/faq" },
-    { label: "Register", href: "[REGISTRATION_URL]" },
   ],
 };
 

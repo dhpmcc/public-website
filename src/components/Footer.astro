@@ -1,5 +1,7 @@
 ---
 import { siteConfig } from '../config/site';
+
+const currentYear = new Date().getFullYear();
 ---
 
 <footer>
@@ -43,6 +45,6 @@ import { siteConfig } from '../config/site';
   </div>
 
   <div>
-    <p>&copy; {siteConfig.year} {siteConfig.shortName}. All rights reserved.</p>
+    <p>&copy; 2026-{currentYear} {siteConfig.shortName}. All rights reserved.</p>
   </div>
 </footer>

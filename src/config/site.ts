@@ -125,3 +125,21 @@ export const faqs = [
     answer: "Problems carry point values based on difficulty and test subtasks. Scoring is determined by correctness across test cases under standard time and memory limits.",
   },
 ];
+
+export interface Sponsor {
+  name: string;
+  url?: string;
+  logo?: string;
+}
+
+export interface SponsorsConfig {
+  platinum: Sponsor[];
+  gold: Sponsor[];
+  silver: Sponsor[];
+}
+
+export const sponsors: SponsorsConfig = {
+  platinum: [],
+  gold: [],
+  silver: [],
+};

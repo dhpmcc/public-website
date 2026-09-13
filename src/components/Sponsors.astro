@@ -1,0 +1,82 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { sponsors } from '../config/site';
+---
+
+<section id="sponsors">
+  <SectionHeading
+    number="03"
+    title="Sponsors"
+  />
+
+  <p>
+    Different tiers of sponsorship exist for DHPMCC: Platinum, Gold, and Silver.
+    Platinum and Gold tiers support company logos, while Silver tier supports text-only listings.
+  </p>
+
+  <div>
+    <h3>Platinum Tier</h3>
+    <p><em>Supports company logo and name.</em></p>
+    {sponsors.platinum.length > 0 ? (
+      <ul>
+        {sponsors.platinum.map((sponsor) => (
+          <li>
+            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} />}
+            <p>
+              {sponsor.url ? (
+                <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
+              ) : (
+                sponsor.name
+              )}
+            </p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>[Sponsor opportunities available]</p>
+    )}
+  </div>
+
+  <div>
+    <h3>Gold Tier</h3>
+    <p><em>Supports company logo and name.</em></p>
+    {sponsors.gold.length > 0 ? (
+      <ul>
+        {sponsors.gold.map((sponsor) => (
+          <li>
+            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} />}
+            <p>
+              {sponsor.url ? (
+                <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
+              ) : (
+                sponsor.name
+              )}
+            </p>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>[Sponsor opportunities available]</p>
+    )}
+  </div>
+
+  <div>
+    <h3>Silver Tier</h3>
+    <p><em>Supports text-only listing.</em></p>
+    {sponsors.silver.length > 0 ? (
+      <ul>
+        {sponsors.silver.map((sponsor) => (
+          <li>
+            {sponsor.url ? (
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
+            ) : (
+              sponsor.name
+            )}
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p>[Sponsor opportunities available]</p>
+    )}
+  </div>
+</section>

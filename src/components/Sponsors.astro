@@ -3,24 +3,24 @@ import SectionHeading from './SectionHeading.astro';
 import { sponsors } from '../config/site';
 ---
 
-<section id="sponsors">
+<section id="sponsors" class="content-container sponsors-section">
   <SectionHeading
     number="03"
     title="Sponsors"
   />
 
-  <p>
+  <p class="sponsor-inquiry">
     <a href="mailto:kabsek30@bergen.org?subject=DHPMCC%20Sponsorship%20Inquiry">Interested in Sponsoring?</a>
   </p>
 
-  <div>
-    <h3>Platinum Tier</h3>
-    <p><em>Supports company logo and name.</em></p>
+  <div class="tier-block">
+    <h3 class="tier-title">Platinum Tier</h3>
+    <p class="tier-desc"><em>Supports company logo and name.</em></p>
     {sponsors.platinum.length > 0 ? (
-      <ul>
+      <ul class="sponsor-list">
         {sponsors.platinum.map((sponsor) => (
-          <li>
-            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} />}
+          <li class="sponsor-item">
+            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
             <p>
               {sponsor.url ? (
                 <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
@@ -32,18 +32,18 @@ import { sponsors } from '../config/site';
         ))}
       </ul>
     ) : (
-      <p>[Sponsor opportunities available]</p>
+      <p class="empty-notice">[Sponsor opportunities available]</p>
     )}
   </div>
 
-  <div>
-    <h3>Gold Tier</h3>
-    <p><em>Supports company logo and name.</em></p>
+  <div class="tier-block">
+    <h3 class="tier-title">Gold Tier</h3>
+    <p class="tier-desc"><em>Supports company logo and name.</em></p>
     {sponsors.gold.length > 0 ? (
-      <ul>
+      <ul class="sponsor-list">
         {sponsors.gold.map((sponsor) => (
-          <li>
-            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} />}
+          <li class="sponsor-item">
+            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
             <p>
               {sponsor.url ? (
                 <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
@@ -55,17 +55,17 @@ import { sponsors } from '../config/site';
         ))}
       </ul>
     ) : (
-      <p>[Sponsor opportunities available]</p>
+      <p class="empty-notice">[Sponsor opportunities available]</p>
     )}
   </div>
 
-  <div>
-    <h3>Silver Tier</h3>
-    <p><em>Supports text-only listing.</em></p>
+  <div class="tier-block">
+    <h3 class="tier-title">Silver Tier</h3>
+    <p class="tier-desc"><em>Supports text-only listing.</em></p>
     {sponsors.silver.length > 0 ? (
-      <ul>
+      <ul class="sponsor-list">
         {sponsors.silver.map((sponsor) => (
-          <li>
+          <li class="sponsor-item">
             {sponsor.url ? (
               <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
             ) : (
@@ -75,7 +75,67 @@ import { sponsors } from '../config/site';
         ))}
       </ul>
     ) : (
-      <p>[Sponsor opportunities available]</p>
+      <p class="empty-notice">[Sponsor opportunities available]</p>
     )}
   </div>
 </section>
+
+<style>
+  .sponsors-section {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    text-align: center;
+  }
+
+  .sponsor-inquiry {
+    margin-bottom: 2rem;
+    font-size: 1rem;
+  }
+
+  .tier-block {
+    margin-bottom: 2.25rem;
+  }
+
+  .tier-title {
+    margin-top: 1.5rem;
+    margin-bottom: 0.25rem;
+    font-size: 1.2rem;
+    color: #1a202c;
+  }
+
+  .tier-desc {
+    color: #718096;
+    font-size: 0.9rem;
+    margin: 0 0 1rem 0;
+  }
+
+  .sponsor-list {
+    list-style: none;
+    padding-left: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    margin: 0.75rem 0;
+  }
+
+  .sponsor-item {
+    margin: 0;
+  }
+
+  .sponsor-logo {
+    max-height: 52px;
+    max-width: 190px;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto 0.4rem auto;
+  }
+
+  .empty-notice {
+    color: #718096;
+    font-size: 0.95rem;
+    font-style: italic;
+    margin: 0.5rem 0;
+  }
+</style>

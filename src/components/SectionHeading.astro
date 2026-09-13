@@ -1,16 +1,39 @@
 ---
 interface Props {
-  number: string;
+  number?: string;
   title: string;
   id?: string;
   subtitle?: string;
 }
 
-const { number, title, id, subtitle } = Astro.props;
+const { title, id, subtitle } = Astro.props;
 ---
 
-<header id={id}>
-  <small>{number} / {title.toUpperCase()}</small>
-  <h2>{title}</h2>
-  {subtitle && <p><em>{subtitle}</em></p>}
+<header id={id} class="section-header">
+  <h2 class="section-title">{title}</h2>
+  {subtitle && <p class="section-subtitle"><em>{subtitle}</em></p>}
 </header>
+
+<style>
+  .section-header {
+    margin-top: 3.5rem;
+    margin-bottom: 1.75rem;
+    text-align: center;
+  }
+
+  .section-title {
+    font-size: 1.85rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 0.5rem 0;
+    letter-spacing: -0.01em;
+  }
+
+  .section-subtitle {
+    margin: 0 auto;
+    color: #555555;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    max-width: 650px;
+  }
+</style>

@@ -3,33 +3,94 @@ import SectionHeading from './SectionHeading.astro';
 import { supportedLanguages } from '../config/site';
 ---
 
-<section id="languages">
+<section id="languages" class="content-container languages-section">
   <SectionHeading
     number="02"
     title="Supported Languages"
   />
 
-  <table border="1">
-    <thead>
-      <tr>
-        <th>Language</th>
-        <th>Version / Standard</th>
-      </tr>
-    </thead>
-    <tbody>
-      {supportedLanguages.map((lang) => (
+  <div class="languages-content">
+    <table class="languages-table">
+      <thead>
         <tr>
-          <td><strong>{lang.name}</strong></td>
-          <td>{lang.standard}</td>
+          <th>Language</th>
+          <th>Version / Standard</th>
         </tr>
-      ))}
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        {supportedLanguages.map((lang) => (
+          <tr>
+            <td><strong>{lang.name}</strong></td>
+            <td>{lang.standard}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
 
-  <h3>Limits:</h3>
-  <ul>
-    <li>Time Limit: 1.0s – 2.0s per test case (scaled for Python &amp; Java)</li>
-    <li>Memory Limit: 256MB – 512MB</li>
-    <li>Compilation Time Limit: 10s</li>
-  </ul>
+    <div class="limits-block">
+      <h3 class="limits-title">Limits:</h3>
+      <ul class="limits-list">
+        <li>Time Limit: 1.0s – 2.0s per test case (scaled for Python &amp; Java)</li>
+        <li>Memory Limit: 256MB – 512MB</li>
+        <li>Compilation Time Limit: 10s</li>
+      </ul>
+    </div>
+  </div>
 </section>
+
+<style>
+  .languages-section {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .languages-content {
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .languages-table {
+    border-collapse: collapse;
+    width: 100%;
+    margin: 1.25rem 0;
+    border: 1px solid #e2e8f0;
+  }
+
+  .languages-table th,
+  .languages-table td {
+    border: 1px solid #e2e8f0;
+    padding: 10px 14px;
+    text-align: left;
+    font-size: 0.95rem;
+  }
+
+  .languages-table th {
+    background-color: #f8fafc;
+    font-weight: 600;
+    color: #1a202c;
+  }
+
+  .limits-block {
+    margin-top: 1.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .limits-title {
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    color: #1a202c;
+  }
+
+  .limits-list {
+    padding-left: 1.25rem;
+    font-size: 0.95rem;
+    color: #4a5568;
+    margin: 0;
+  }
+
+  .limits-list li {
+    margin-bottom: 0.4rem;
+  }
+</style>

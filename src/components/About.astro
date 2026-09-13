@@ -2,94 +2,20 @@
 import SectionHeading from './SectionHeading.astro';
 ---
 
-<section class="content-section" id="about">
+<section id="about">
   <SectionHeading
     number="01"
     title="About the Competition"
-    subtitle="A serious individual competitive programming tournament hosted at Bergen County Academies."
+    subtitle="An individual competitive programming tournament hosted at Bergen County Academies."
   />
 
-  <div class="prose-block">
-    <p>
-      The <strong>Daniel H. Plotnick Memorial Computing Competition (DHPMCC)</strong> is an in-person programming competition hosted at <strong>Bergen County Academies</strong> in Hackensack, New Jersey.
-    </p>
-    <p>
-      DHPMCC is structured as an individual algorithmic contest. Competitors are presented with a series of original, rigorous computer science problems and are tasked with formulating and implementing optimal solutions under fixed contest constraints. 
-    </p>
-    <p>
-      The competition emphasizes deep algorithmic reasoning, time complexity optimization, and rigorous implementation over trivial coding tasks. Solutions are evaluated automatically against comprehensive sets of secret test cases on an isolated judging server.
-    </p>
-  </div>
-
-  <div class="callout-grid">
-    <div class="callout-box">
-      <span class="callout-heading mono">INDIVIDUAL FORMAT</span>
-      <p class="callout-desc">Each participant develops and submits their own code from their workstation without collaboration or external assistance.</p>
-    </div>
-    <div class="callout-box">
-      <span class="callout-heading mono">ALGORITHMIC FOCUS</span>
-      <p class="callout-desc">Problems range from combinatorial mathematics and graph theory to dynamic programming and data structure design.</p>
-    </div>
-    <div class="callout-box">
-      <span class="callout-heading mono">AUTHENTIC GRADING</span>
-      <p class="callout-desc">Submissions are evaluated on real-time execution benchmarks with precise millisecond CPU limits and strict memory ceilings.</p>
-    </div>
-  </div>
+  <p>
+    The <strong>Daniel H. Plotnick Memorial Computing Competition (DHPMCC)</strong> is an in-person programming competition hosted at <strong>Bergen County Academies</strong> in Hackensack, New Jersey.
+  </p>
+  <p>
+    DHPMCC is structured as an individual algorithmic contest. Competitors are presented with a series of original, rigorous computer science problems and are tasked with formulating and implementing optimal solutions under fixed contest constraints.
+  </p>
+  <p>
+    The competition emphasizes deep algorithmic reasoning, time complexity optimization, and rigorous implementation over trivial coding tasks. Solutions are evaluated automatically against comprehensive sets of secret test cases on an isolated judging server.
+  </p>
 </section>
-
-<style>
-  .content-section {
-    margin-bottom: 3.5rem;
-  }
-
-  .prose-block {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    font-size: 1rem;
-    line-height: 1.7;
-    color: var(--text-secondary);
-    max-width: 75ch;
-    margin-bottom: 2rem;
-  }
-
-  .prose-block strong {
-    color: var(--text-main);
-    font-weight: 600;
-  }
-
-  .callout-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-  }
-
-  .callout-box {
-    background-color: var(--bg-surface);
-    border: 1px solid var(--border);
-    padding: 1.2rem 1.25rem;
-    border-radius: 2px;
-  }
-
-  .callout-heading {
-    display: block;
-    font-size: 0.75rem;
-    font-weight: 700;
-    color: var(--accent);
-    margin-bottom: 0.5rem;
-    letter-spacing: 0.05em;
-  }
-
-  .callout-desc {
-    font-size: 0.88rem;
-    line-height: 1.55;
-    color: var(--text-secondary);
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .callout-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>

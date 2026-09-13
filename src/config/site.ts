@@ -41,50 +41,12 @@ export const siteConfig: SiteConfig = {
   navItems: [
     { label: "Home", href: "#top" },
     { label: "About", href: "#about" },
-    { label: "Schedule", href: "#schedule" },
-    { label: "Divisions", href: "#divisions" },
+    { label: "Languages", href: "#languages" },
     { label: "Rules", href: "#rules" },
     { label: "FAQ", href: "#faq" },
-    { label: "Register", href: "#register" },
+    { label: "Register", href: "[REGISTRATION_URL]" },
   ],
 };
-
-export const eventDetails = [
-  { label: "EVENT", value: "Daniel H. Plotnick Memorial Computing Competition" },
-  { label: "DATE", value: "February 20, 2027" },
-  { label: "LOCATION", value: "Bergen County Academies — Hackensack, NJ" },
-  { label: "FORMAT", value: "In-person" },
-  { label: "COMPETITION", value: "Individual" },
-  { label: "PLATFORM", value: "Automated Contest Management & Judging System" },
-  { label: "INPUT / OUTPUT", value: "Standard I/O (stdin / stdout)" },
-];
-
-export const competitionLoop = [
-  {
-    step: "01",
-    tag: "SOLVE",
-    title: "Analyze & Formulate",
-    description: "Read the formal problem specification, understand input/output bounds, and design an efficient algorithmic solution.",
-  },
-  {
-    step: "02",
-    tag: "SUBMIT",
-    title: "Implement & Send",
-    description: "Write your solution in your local development environment and upload the source code directly to the contest platform.",
-  },
-  {
-    step: "03",
-    tag: "JUDGE",
-    title: "Compile & Evaluate",
-    description: "The judging system compiles the source code in a sandboxed environment and runs it against hidden evaluation test batches.",
-  },
-  {
-    step: "04",
-    tag: "SCORE",
-    title: "Verify & Rank",
-    description: "Solutions passing within execution time and memory limits are awarded points according to the contest scoring specifications.",
-  },
-];
 
 export const supportedLanguages = [
   {
@@ -147,11 +109,7 @@ export const rulesSummary = [
 export const faqs = [
   {
     question: "Who can compete?",
-    answer: "DHPMCC is open to pre-college students interested in algorithmic problem solving and competitive programming. Specific eligibility parameters by grade level are established within the competition division guidelines.",
-  },
-  {
-    question: "How are divisions determined?",
-    answer: "[DIVISION_INFORMATION] — Divisions are organized to ensure fair and rigorous competition. Detailed division criteria, including experience levels and grade eligibility, will be officially published by contest administrators prior to registration closure.",
+    answer: "DHPMCC is open to pre-college students interested in algorithmic problem solving and competitive programming.",
   },
   {
     question: "What programming languages are supported?",
@@ -167,10 +125,6 @@ export const faqs = [
   },
   {
     question: "How does scoring work?",
-    answer: "Problems carry point values based on difficulty and test subtasks. Scoring is determined by correctness across test cases under standard time and memory limits. Final tie-breaking rules and penalty point calculations will be detailed in the official contest rules.",
-  },
-  {
-    question: "When does registration close?",
-    answer: "[REGISTRATION_URL] — Registration deadlines will be announced alongside the opening of the official registration form. Because venue capacity at Bergen County Academies is limited, registration may close early if capacity is reached.",
+    answer: "Problems carry point values based on difficulty and test subtasks. Scoring is determined by correctness across test cases under standard time and memory limits.",
   },
 ];

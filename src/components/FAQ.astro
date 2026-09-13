@@ -3,33 +3,19 @@ import SectionHeading from './SectionHeading.astro';
 import { faqs } from '../config/site';
 ---
 
-<section class="content-section" id="faq">
+<section id="faq">
   <SectionHeading
-    number="08"
+    number="04"
     title="Frequently Asked Questions"
     subtitle="Operational, technical, and logistical information regarding DHPMCC."
   />
 
-  <div class="faq-container">
+  <div>
     {faqs.map((item) => (
-      <details class="faq-item">
-        <summary class="faq-summary">
-          <span>{item.question}</span>
-        </summary>
-        <div class="faq-content">
-          <p>{item.answer}</p>
-        </div>
+      <details>
+        <summary>{item.question}</summary>
+        <p>{item.answer}</p>
       </details>
     ))}
   </div>
 </section>
-
-<style>
-  .content-section {
-    margin-bottom: 3.5rem;
-  }
-
-  .faq-container {
-    max-width: 100%;
-  }
-</style>

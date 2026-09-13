@@ -1,0 +1,106 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { supportedLanguages } from '../config/site';
+---
+
+<section class="content-section" id="languages">
+  <SectionHeading
+    number="06"
+    title="Supported Languages & Compilers"
+    subtitle="All solutions are compiled and executed in a sandboxed 64-bit Linux execution environment."
+  />
+
+  <p class="languages-intro">
+    Solutions must be written in one of the following supported programming languages. Standard library access is enabled, while network sockets, process forking, and disk writes outside standard temporary handles are prohibited.
+  </p>
+
+  <div class="table-wrapper">
+    <table class="data-table languages-table">
+      <thead>
+        <tr>
+          <th style="width: 15%;">LANGUAGE</th>
+          <th style="width: 18%;">STANDARD / VERSION</th>
+          <th style="width: 20%;">COMPILER / ENVIRONMENT</th>
+          <th style="width: 25%;">FLAGS / EXECUTION</th>
+          <th style="width: 22%;">I/O RECOMMENDATION</th>
+        </tr>
+      </thead>
+      <tbody>
+        {supportedLanguages.map((lang) => (
+          <tr>
+            <td class="mono font-bold text-accent">{lang.name}</td>
+            <td class="mono text-small">{lang.standard}</td>
+            <td>{lang.compiler}</td>
+            <td class="mono text-small code-flag"><code>{lang.flags}</code></td>
+            <td class="text-small">{lang.notes}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+
+  <div class="lang-specs-box mono">
+    <span class="specs-title">COMPILATION & RUNTIME CONSTRAINTS:</span>
+    <ul class="specs-list">
+      <li>Execution Time Limits: Default 1.0s – 2.0s per test case (language-scaled for Python & Java where appropriate).</li>
+      <li>Memory Limits: Default 256MB – 512MB per execution batch.</li>
+      <li>Compilation Time: Maximum 10 seconds. Submissions exceeding compilation limits will receive a Compilation Error (CE).</li>
+    </ul>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .languages-intro {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 75ch;
+    margin-bottom: 1.25rem;
+  }
+
+  .font-bold {
+    font-weight: 700;
+  }
+
+  .text-accent {
+    color: var(--accent);
+  }
+
+  .text-small {
+    font-size: 0.83rem;
+  }
+
+  .code-flag code {
+    font-size: 0.8rem;
+  }
+
+  .lang-specs-box {
+    margin-top: 1rem;
+    padding: 0.85rem 1.15rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    border-radius: 2px;
+  }
+
+  .specs-title {
+    display: block;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.4rem;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+
+  .specs-list {
+    margin-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+</style>

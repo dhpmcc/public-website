@@ -1,0 +1,94 @@
+---
+import SectionHeading from './SectionHeading.astro';
+---
+
+<section class="content-section" id="divisions">
+  <SectionHeading
+    number="04"
+    title="Competition Divisions"
+    subtitle="Tiered contest tracks designed to provide appropriate challenge and balanced competition."
+  />
+
+  <p class="division-explainer">
+    DHPMCC features multiple competition divisions configured by contest administrators to accommodate students across varying levels of programming and algorithmic experience. Division definitions, problem sets, and eligibility restrictions are established by the DHPMCC problem-writing committee.
+  </p>
+
+  <div class="division-notice mono">
+    <span class="notice-icon">ℹ</span>
+    <span>STATUS: <span class="placeholder-tag">[DIVISION_INFORMATION]</span> — Official division divisions, grade eligibility criteria, and problem count allocations are being finalized by administrators.</span>
+  </div>
+
+  <div class="table-wrapper">
+    <table class="data-table division-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">DIVISION</th>
+          <th style="width: 35%;">ELIGIBILITY</th>
+          <th style="width: 20%;">CONTEST DURATION</th>
+          <th style="width: 20%;">PROBLEM SET</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="mono font-semibold">Division 1 (Advanced)</td>
+          <td><span class="placeholder-tag">[DIVISION_INFORMATION]</span></td>
+          <td class="mono">[FINAL DURATION]</td>
+          <td>Advanced algorithms & data structures</td>
+        </tr>
+        <tr>
+          <td class="mono font-semibold">Division 2 (Standard)</td>
+          <td><span class="placeholder-tag">[DIVISION_INFORMATION]</span></td>
+          <td class="mono">[FINAL DURATION]</td>
+          <td>Foundational algorithms & implementation</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="division-notes">
+    <p class="mono text-muted text-small">
+      * Note: Final division criteria, self-selection policies, and grade constraints will be published on this page before registration closes.
+    </p>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .division-explainer {
+    font-size: 0.96rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 75ch;
+    margin-bottom: 1.25rem;
+  }
+
+  .division-notice {
+    font-size: 0.82rem;
+    background-color: var(--bg-surface);
+    border: 1px solid var(--border);
+    padding: 0.75rem 1rem;
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .notice-icon {
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  .font-semibold {
+    font-weight: 600;
+  }
+
+  .text-small {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+</style>

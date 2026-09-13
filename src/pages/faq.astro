@@ -4,17 +4,65 @@ import { faqs } from '../config/site';
 ---
 
 <Layout title="Frequently Asked Questions // DHPMCC">
-  <section id="faq">
-    <h1>Frequently Asked Questions</h1>
-    <p><em>Operational, technical, and logistical information regarding DHPMCC.</em></p>
+  <section id="faq" class="content-container faq-section">
+    <h1 class="page-title">Frequently Asked Questions</h1>
+    <p class="page-subtitle"><em>Operational, technical, and logistical information regarding DHPMCC.</em></p>
 
-    <div>
+    <div class="faq-container">
       {faqs.map((item) => (
-        <details>
-          <summary>{item.question}</summary>
-          <p>{item.answer}</p>
+        <details class="faq-item">
+          <summary class="faq-question">{item.question}</summary>
+          <p class="faq-answer">{item.answer}</p>
         </details>
       ))}
     </div>
   </section>
 </Layout>
+
+<style>
+  .faq-section {
+    padding-top: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .page-subtitle {
+    color: #555555;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .faq-container {
+    margin-top: 1.5rem;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid var(--color-border);
+    padding: 0.85rem 0;
+  }
+
+  .faq-question {
+    font-weight: 600;
+    font-size: 1.02rem;
+    color: #111111;
+    cursor: pointer;
+    user-select: none;
+    transition: color 0.15s ease;
+  }
+
+  .faq-question:hover {
+    color: var(--color-link);
+  }
+
+  .faq-answer {
+    margin: 0.65rem 0 0.25rem 1.25rem;
+    color: #2d3748;
+    line-height: 1.65;
+    font-size: 0.98rem;
+  }
+</style>

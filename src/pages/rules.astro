@@ -4,20 +4,62 @@ import { rulesSummary } from '../config/site';
 ---
 
 <Layout title="Rules & Contest Integrity // DHPMCC">
-  <section id="rules">
-    <h1>Rules &amp; Contest Integrity</h1>
-    <p><em>Essential guidelines governing eligibility, fair play, and automated scoring.</em></p>
+  <section id="rules" class="content-container rules-section">
+    <h1 class="page-title">Rules &amp; Contest Integrity</h1>
+    <p class="page-subtitle"><em>Essential guidelines governing eligibility, fair play, and automated scoring.</em></p>
 
-    <p>
+    <p class="rules-intro">
       DHPMCC is conducted under strict competitive programming regulations. Competitors are expected to read and adhere to all contest conduct guidelines.
     </p>
 
-    <ol>
+    <ol class="rules-list">
       {rulesSummary.map((rule) => (
-        <li>
-          <strong>{rule.topic}:</strong> {rule.summary}
+        <li class="rule-item">
+          <strong class="rule-topic">{rule.topic}:</strong> {rule.summary}
         </li>
       ))}
     </ol>
   </section>
 </Layout>
+
+<style>
+  .rules-section {
+    padding-top: 0.5rem;
+  }
+
+  .page-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .page-subtitle {
+    color: #555555;
+    font-size: 1rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .rules-intro {
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: #2d3748;
+    margin-bottom: 1.75rem;
+  }
+
+  .rules-list {
+    padding-left: 1.5rem;
+    margin: 1.5rem 0;
+  }
+
+  .rule-item {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    line-height: 1.65;
+    color: #2d3748;
+  }
+
+  .rule-topic {
+    color: #111111;
+  }
+</style>

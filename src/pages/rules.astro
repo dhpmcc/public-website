@@ -1,0 +1,23 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { rulesSummary } from '../config/site';
+---
+
+<Layout title="Rules & Contest Integrity // DHPMCC">
+  <section id="rules">
+    <h1>Rules &amp; Contest Integrity</h1>
+    <p><em>Essential guidelines governing eligibility, fair play, and automated scoring.</em></p>
+
+    <p>
+      DHPMCC is conducted under strict competitive programming regulations. Competitors are expected to read and adhere to all contest conduct guidelines.
+    </p>
+
+    <ol>
+      {rulesSummary.map((rule) => (
+        <li>
+          <strong>{rule.topic}:</strong> {rule.summary}
+        </li>
+      ))}
+    </ol>
+  </section>
+</Layout>

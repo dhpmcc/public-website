@@ -1,0 +1,20 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { faqs } from '../config/site';
+---
+
+<Layout title="Frequently Asked Questions // DHPMCC">
+  <section id="faq">
+    <h1>Frequently Asked Questions</h1>
+    <p><em>Operational, technical, and logistical information regarding DHPMCC.</em></p>
+
+    <div>
+      {faqs.map((item) => (
+        <details>
+          <summary>{item.question}</summary>
+          <p>{item.answer}</p>
+        </details>
+      ))}
+    </div>
+  </section>
+</Layout>

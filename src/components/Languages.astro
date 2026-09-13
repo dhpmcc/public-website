@@ -6,22 +6,14 @@ import { supportedLanguages } from '../config/site';
 <section id="languages">
   <SectionHeading
     number="02"
-    title="Supported Languages & Compilers"
-    subtitle="All solutions are compiled and executed in a sandboxed 64-bit Linux execution environment."
+    title="Supported Languages"
   />
-
-  <p>
-    Solutions must be written in one of the following supported programming languages. Standard library access is enabled, while network sockets, process forking, and disk writes outside standard temporary handles are prohibited.
-  </p>
 
   <table border="1">
     <thead>
       <tr>
         <th>Language</th>
-        <th>Standard / Version</th>
-        <th>Compiler / Environment</th>
-        <th>Flags / Execution</th>
-        <th>I/O Recommendation</th>
+        <th>Version / Standard</th>
       </tr>
     </thead>
     <tbody>
@@ -29,18 +21,15 @@ import { supportedLanguages } from '../config/site';
         <tr>
           <td><strong>{lang.name}</strong></td>
           <td>{lang.standard}</td>
-          <td>{lang.compiler}</td>
-          <td><code>{lang.flags}</code></td>
-          <td>{lang.notes}</td>
         </tr>
       ))}
     </tbody>
   </table>
 
-  <h3>Compilation & Runtime Constraints:</h3>
+  <h3>Limits:</h3>
   <ul>
-    <li>Execution Time Limits: Default 1.0s – 2.0s per test case (language-scaled for Python & Java where appropriate).</li>
-    <li>Memory Limits: Default 256MB – 512MB per execution batch.</li>
-    <li>Compilation Time: Maximum 10 seconds. Submissions exceeding compilation limits will receive a Compilation Error (CE).</li>
+    <li>Time Limit: 1.0s – 2.0s per test case (scaled for Python &amp; Java)</li>
+    <li>Memory Limit: 256MB – 512MB</li>
+    <li>Compilation Time Limit: 10s</li>
   </ul>
 </section>

@@ -1,0 +1,50 @@
+---
+import SectionHeading from './SectionHeading.astro';
+import { eventDetails } from '../config/site';
+---
+
+<section class="content-section" id="details">
+  <SectionHeading
+    number="02"
+    title="Event Overview"
+    subtitle="Confirmed event specifications for the 2027 competition."
+  />
+
+  <div class="table-wrapper">
+    <table class="data-table event-specs-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">SPECIFICATION</th>
+          <th style="width: 75%;">DETAILS</th>
+        </tr>
+      </thead>
+      <tbody>
+        {eventDetails.map((item) => (
+          <tr>
+            <td class="mono spec-label">{item.label}</td>
+            <td class="spec-value">{item.value}</td>
+          </tr>
+        ))}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<style>
+  .content-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .event-specs-table .spec-label {
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    background-color: var(--bg-subtle);
+  }
+
+  .event-specs-table .spec-value {
+    color: var(--text-main);
+    font-weight: 500;
+  }
+</style>

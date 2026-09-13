@@ -1,0 +1,184 @@
+---
+import { siteConfig } from '../config/site';
+---
+
+<section class="masthead" id="top">
+  <div class="masthead-top mono">
+    <div class="masthead-tag">
+      <span class="tag-label">DHPMCC // {siteConfig.year}</span>
+    </div>
+    <div class="status-badge" role="status">
+      <span class="status-dot"></span>
+      <span>CONTEST STATUS: {siteConfig.status}</span>
+    </div>
+  </div>
+
+  <h1 class="masthead-title">
+    <span class="title-line">Daniel H. Plotnick</span>
+    <span class="title-line">Memorial Computing Competition</span>
+  </h1>
+
+  <p class="masthead-tagline">
+    A programming competition hosted at Bergen County Academies.
+  </p>
+
+  <!-- Utilitarian Competition Metadata Grid -->
+  <div class="meta-strip mono">
+    <div class="meta-cell">
+      <span class="meta-label">DATE</span>
+      <span class="meta-value">{siteConfig.date.toUpperCase()}</span>
+    </div>
+    <div class="meta-cell">
+      <span class="meta-label">LOCATION</span>
+      <span class="meta-value">{siteConfig.location.toUpperCase()}</span>
+    </div>
+    <div class="meta-cell">
+      <span class="meta-label">FORMAT</span>
+      <span class="meta-value">{siteConfig.format.toUpperCase()}</span>
+    </div>
+    <div class="meta-cell">
+      <span class="meta-label">PARTICIPATION</span>
+      <span class="meta-value">INDIVIDUAL</span>
+    </div>
+  </div>
+
+  <div class="masthead-actions">
+    <a href={siteConfig.registrationUrl} class="btn btn-primary" rel="noopener noreferrer">
+      Register
+    </a>
+    <a href="#about" class="btn btn-secondary">
+      Learn more
+    </a>
+  </div>
+</section>
+
+<style>
+  .masthead {
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .masthead-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.25rem;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+
+  .masthead-tag {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: 0.05em;
+  }
+
+  .masthead-title {
+    font-size: 2.4rem;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.025em;
+    color: var(--text-main);
+    margin-bottom: 0.75rem;
+  }
+
+  .title-line {
+    display: block;
+  }
+
+  .masthead-tagline {
+    font-size: 1.12rem;
+    color: var(--text-secondary);
+    max-width: 58ch;
+    margin-bottom: 1.75rem;
+    line-height: 1.5;
+  }
+
+  .meta-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border: 1px solid var(--border);
+    background-color: var(--bg-surface);
+    margin-bottom: 1.75rem;
+  }
+
+  .meta-cell {
+    padding: 0.85rem 1rem;
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+
+  .meta-cell:last-child {
+    border-right: none;
+  }
+
+  .meta-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+  }
+
+  .meta-value {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-main);
+  }
+
+  .masthead-actions {
+    display: flex;
+    gap: 0.85rem;
+    align-items: center;
+  }
+
+  @media (max-width: 768px) {
+    .masthead-title {
+      font-size: 1.85rem;
+    }
+
+    .masthead-tagline {
+      font-size: 1rem;
+    }
+
+    .meta-strip {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .meta-cell:nth-child(2) {
+      border-right: none;
+    }
+
+    .meta-cell:nth-child(1),
+    .meta-cell:nth-child(2) {
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .meta-strip {
+      grid-template-columns: 1fr;
+    }
+
+    .meta-cell {
+      border-right: none !important;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .meta-cell:last-child {
+      border-bottom: none;
+    }
+
+    .masthead-actions {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .masthead-actions .btn {
+      text-align: center;
+    }
+  }
+</style>

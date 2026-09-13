@@ -105,24 +105,52 @@ export const rulesSummary = [
 
 export const faqs = [
   {
-    question: "Who can compete?",
-    answer: "DHPMCC is open to pre-college students interested in algorithmic problem solving and competitive programming.",
+    question: "Who can participate?",
+    answer: "DHPMCC is open to all pre-college students interested in algorithmic problem solving and competitive programming. Students compete in divisions based on grade level.",
+  },
+  {
+    question: "Do I need competitive programming experience?",
+    answer: "No. Previous competitive programming experience is not required. The contest is designed to be approachable for students who are newer to programming while still providing challenging problems for experienced competitors.",
   },
   {
     question: "What programming languages are supported?",
-    answer: "The contest platform supports C, C++17, Java, and Python 3.12. All compilers run in sandboxed execution containers with strict CPU time and memory limits.",
+    answer: "The contest platform supports C, C++17, Java, and Python 3.12. Solutions run in sandboxed environments with enforced CPU time and memory limits.",
   },
   {
-    question: "Do I need to bring a laptop?",
-    answer: "Yes. Competitors must bring their own laptop with a working Wi-Fi card, an installed code editor/IDE, and the compilers or interpreters needed for their chosen programming languages.",
+    question: "What should I bring?",
+    answer: "Competitors should bring their own laptop, charger, and any accessories they need for programming. Your laptop should have a working Wi-Fi connection and a code editor or IDE configured for your chosen language.",
+  },
+  {
+    question: "Will programming software be provided?",
+    answer: "Competitors are responsible for having their programming environment ready before the contest. Make sure your compiler or interpreter and preferred editor/IDE are installed and working before arriving.",
   },
   {
     question: "Where is DHPMCC held?",
-    answer: "DHPMCC takes place in person at Bergen County Academies, located at 200 Hackensack Avenue, Hackensack, NJ 07601. Room assignments and check-in logistics will be sent to registered participants.",
+    answer: "DHPMCC is held in person at Bergen County Academies, located at 200 Hackensack Avenue, Hackensack, NJ 07601. Specific room assignments and check-in instructions will be provided to registered participants before the contest.",
   },
   {
-    question: "How does scoring work?",
-    answer: "Problems carry point values based on difficulty and test subtasks. Scoring is determined by correctness across test cases under standard time and memory limits.",
+    question: "How is the contest scored?",
+    answer: "Problems have different point values based on their difficulty and available subtasks. Points are awarded according to how many official test cases and subtasks a submission successfully passes, subject to the problem’s time and memory limits.",
+  },
+  {
+    question: "Can I submit multiple times?",
+    answer: "Yes. Competitors may submit solutions throughout the contest, subject to any submission limits specified for individual problems.",
+  },
+  {
+    question: "What happens if I have a technical problem?",
+    answer: "Notify a contest organizer or proctor as soon as possible. Contest staff will help determine whether the issue can be resolved. Competitors should not attempt to modify or interfere with the contest platform themselves.",
+  },
+  {
+    question: "Will there be sample problems or test cases?",
+    answer: "Problem statements will include whatever sample inputs and outputs are necessary to explain the problem format. Competitors should also expect hidden tests that are not provided during the contest.",
+  },
+  {
+    question: "Can I work with other competitors?",
+    answer: "No. DHPMCC is an individual competition. Competitors must develop and submit their own solutions and may not collaborate or receive unauthorized assistance during the contest.",
+  },
+  {
+    question: "When will I receive more information?",
+    answer: "Registered competitors will receive additional information about check-in, room assignments, contest timing, equipment requirements, and other logistics before the competition.",
   },
 ];
 

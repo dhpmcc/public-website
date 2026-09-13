@@ -116,6 +116,8 @@ const currentYear = new Date().getFullYear();
   .footer-links-list a {
     color: #444444;
     text-decoration: none;
+    display: inline-block;
+    padding: 0.15rem 0;
   }
 
   .footer-links-list a:hover {
@@ -136,10 +138,14 @@ const currentYear = new Date().getFullYear();
     margin: 0;
   }
 
-  @media (max-width: 600px) {
+  @media (max-width: 680px) {
     .footer-columns {
       flex-direction: column;
-      gap: 1.5rem;
+      gap: 1.75rem;
+    }
+
+    .footer-links-list li {
+      margin-bottom: 0.5rem;
     }
   }
 </style>

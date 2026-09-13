@@ -5,12 +5,22 @@ import { siteConfig } from '../config/site';
 <header class="site-header">
   <div class="header-inner">
     <div class="brand">
-      <a href="/">
-        <strong>DHPMCC</strong> - Daniel H. Plotnick Memorial Computing Competition
+      <a href="/" class="brand-link">
+        <span class="brand-name">DHPMCC</span>
       </a>
     </div>
 
-    <nav aria-label="Main Navigation">
+    <!-- Mobile Menu Button -->
+    <button class="mobile-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+      <span class="menu-icon" aria-hidden="true">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </span>
+      <span class="menu-label">Menu</span>
+    </button>
+
+    <nav class="site-nav" aria-label="Main Navigation">
       <ul class="nav-list">
         {siteConfig.navItems.map((item) => (
           <li>
@@ -22,6 +32,28 @@ import { siteConfig } from '../config/site';
   </div>
 </header>
 
+<script>
+  const toggleBtn = document.querySelector('.mobile-toggle');
+  const siteNav = document.querySelector('.site-nav');
+
+  if (toggleBtn && siteNav) {
+    toggleBtn.addEventListener('click', () => {
+      const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
+      siteNav.classList.toggle('is-open');
+    });
+
+    // Close menu when clicking a link
+    const navLinks = siteNav.querySelectorAll('a');
+    navLinks.forEach((link) => {
+      link.addEventListener('click', () => {
+        siteNav.classList.remove('is-open');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
 <style>
   .site-header {
     border-bottom: 1px solid var(--color-border);
@@ -32,22 +64,37 @@ import { siteConfig } from '../config/site';
   .header-inner {
     max-width: var(--max-width);
     margin: 0 auto;
-    padding: 1.25rem 1.25rem;
+    padding: 1.6rem 1.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 1rem;
+    gap: 1.5rem;
+    position: relative;
   }
 
-  .brand a {
+  /* JHMMC Prominent Wordmark */
+  .brand-link {
+    text-decoration: none;
     color: #111111;
-    text-decoration: none;
-    font-size: 0.95rem;
+    display: inline-block;
   }
 
-  .brand a:hover {
+  .brand-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    color: #111111;
+    transition: color 0.15s ease;
+  }
+
+  .brand-link:hover .brand-name {
     color: var(--color-link);
-    text-decoration: none;
+  }
+
+  /* Desktop Nav */
+  .site-nav {
+    display: flex;
+    align-items: center;
   }
 
   .nav-list {
@@ -55,7 +102,7 @@ import { siteConfig } from '../config/site';
     list-style: none;
     margin: 0;
     padding: 0;
-    gap: 1.5rem;
+    gap: 2rem;
     align-items: center;
   }
 
@@ -64,9 +111,12 @@ import { siteConfig } from '../config/site';
   }
 
   .nav-list a {
-    color: #444444;
-    font-size: 0.95rem;
+    color: #333333;
+    font-size: 1rem;
+    font-weight: 500;
     text-decoration: none;
+    padding: 0.25rem 0;
+    transition: color 0.15s ease;
   }
 
   .nav-list a:hover {
@@ -74,15 +124,80 @@ import { siteConfig } from '../config/site';
     text-decoration: underline;
   }
 
-  @media (max-width: 680px) {
+  /* Mobile Toggle Button */
+  .mobile-toggle {
+    display: none;
+    background: none;
+    border: 1px solid #dcdcdc;
+    padding: 0.45rem 0.75rem;
+    border-radius: 4px;
+    cursor: pointer;
+    align-items: center;
+    gap: 0.45rem;
+    font-family: inherit;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #333333;
+  }
+
+  .menu-icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 16px;
+    height: 12px;
+  }
+
+  .menu-icon .bar {
+    display: block;
+    height: 2px;
+    width: 100%;
+    background-color: #333333;
+    border-radius: 1px;
+  }
+
+  @media (max-width: 720px) {
     .header-inner {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 0.75rem;
+      padding: 1.25rem 1.25rem;
+      flex-wrap: wrap;
+    }
+
+    .brand-name {
+      font-size: 1.5rem;
+    }
+
+    .mobile-toggle {
+      display: inline-flex;
+    }
+
+    .site-nav {
+      display: none;
+      width: 100%;
+      padding-top: 1rem;
+      border-top: 1px solid #f0f0f0;
+      margin-top: 0.5rem;
+    }
+
+    .site-nav.is-open {
+      display: block;
     }
 
     .nav-list {
-      gap: 1.25rem;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    .nav-list li {
+      width: 100%;
+    }
+
+    .nav-list a {
+      display: block;
+      width: 100%;
+      padding: 0.5rem 0;
+      font-size: 1.05rem;
     }
   }
 </style>

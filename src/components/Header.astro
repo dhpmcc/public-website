@@ -11,7 +11,7 @@ import { siteConfig } from '../config/site';
     </div>
 
     <!-- Mobile Menu Button -->
-    <button class="mobile-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false">
+    <button class="mobile-toggle" type="button" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="site-nav">
       <span class="menu-icon" aria-hidden="true">
         <span class="bar"></span>
         <span class="bar"></span>
@@ -20,7 +20,7 @@ import { siteConfig } from '../config/site';
       <span class="menu-label">Menu</span>
     </button>
 
-    <nav class="site-nav" aria-label="Main Navigation">
+    <nav id="site-nav" class="site-nav" aria-label="Main Navigation">
       <ul class="nav-list">
         {siteConfig.navItems.map((item) => (
           <li>
@@ -34,10 +34,16 @@ import { siteConfig } from '../config/site';
 
 <script>
   const toggleBtn = document.querySelector('.mobile-toggle');
-  const siteNav = document.querySelector('.site-nav');
+  const siteNav = document.querySelector('#site-nav');
 
   if (toggleBtn && siteNav) {
-    toggleBtn.addEventListener('click', () => {
+    const closeMenu = () => {
+      siteNav.classList.remove('is-open');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    };
+
+    toggleBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       const isExpanded = toggleBtn.getAttribute('aria-expanded') === 'true';
       toggleBtn.setAttribute('aria-expanded', String(!isExpanded));
       siteNav.classList.toggle('is-open');
@@ -46,10 +52,26 @@ import { siteConfig } from '../config/site';
     // Close menu when clicking a link
     const navLinks = siteNav.querySelectorAll('a');
     navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        siteNav.classList.remove('is-open');
-        toggleBtn.setAttribute('aria-expanded', 'false');
-      });
+      link.addEventListener('click', closeMenu);
+    });
+
+    // Close menu on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && siteNav.classList.contains('is-open')) {
+        closeMenu();
+        (toggleBtn as HTMLElement).focus();
+      }
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (
+        siteNav.classList.contains('is-open') &&
+        !siteNav.contains(e.target as Node) &&
+        !toggleBtn.contains(e.target as Node)
+      ) {
+        closeMenu();
+      }
     });
   }
 </script>

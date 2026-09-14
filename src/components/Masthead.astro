@@ -6,7 +6,7 @@ import { siteConfig } from '../config/site';
   <!-- Full-Width Scrolling Photo Gallery (JHMMC Style with Direct Text Overlay) -->
   <div class="gallery-container" aria-label="Competition Banner">
     <div class="gallery-track">
-      <div class="gallery-slide active" style="--bg-image: url('/images/slide1.jpg');">
+      <div class="gallery-slide active">
         <div class="slide-overlay">
           <div class="slide-content">
             <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
@@ -15,7 +15,7 @@ import { siteConfig } from '../config/site';
           </div>
         </div>
       </div>
-      <div class="gallery-slide" style="--bg-image: url('/images/slide2.jpg');">
+      <div class="gallery-slide">
         <div class="slide-overlay">
           <div class="slide-content">
             <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
@@ -24,7 +24,7 @@ import { siteConfig } from '../config/site';
           </div>
         </div>
       </div>
-      <div class="gallery-slide" style="--bg-image: url('/images/slide3.jpg');">
+      <div class="gallery-slide">
         <div class="slide-overlay">
           <div class="slide-content">
             <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
@@ -57,10 +57,12 @@ import { siteConfig } from '../config/site';
 </section>
 
 <script>
+  const gallery = document.querySelector('.gallery-container');
   const slides = document.querySelectorAll('.gallery-slide');
   const dots = document.querySelectorAll('.gallery-dots .dot');
   let currentIndex = 0;
-  let intervalId: ReturnType<typeof setInterval>;
+  let intervalId: ReturnType<typeof setInterval> | null = null;
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   function showSlide(index: number) {
     if (!slides.length) return;
@@ -87,17 +89,42 @@ import { siteConfig } from '../config/site';
   });
 
   function startAutoPlay() {
-    intervalId = setInterval(nextSlide, 5000);
+    if (prefersReducedMotion || slides.length <= 1) return;
+    if (intervalId === null) {
+      intervalId = setInterval(nextSlide, 5000);
+    }
+  }
+
+  function stopAutoPlay() {
+    if (intervalId !== null) {
+      clearInterval(intervalId);
+      intervalId = null;
+    }
   }
 
   function resetAutoPlay() {
-    clearInterval(intervalId);
+    stopAutoPlay();
     startAutoPlay();
   }
 
-  if (slides.length > 1) {
-    startAutoPlay();
+  // Pause when hovered or focused
+  if (gallery) {
+    gallery.addEventListener('mouseenter', stopAutoPlay);
+    gallery.addEventListener('mouseleave', startAutoPlay);
+    gallery.addEventListener('focusin', stopAutoPlay);
+    gallery.addEventListener('focusout', startAutoPlay);
   }
+
+  // Pause when browser tab is hidden to conserve CPU/battery
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+      stopAutoPlay();
+    } else {
+      startAutoPlay();
+    }
+  });
+
+  startAutoPlay();
 </script>
 
 <style>

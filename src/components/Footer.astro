@@ -5,63 +5,70 @@ const currentYear = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
-  <hr />
-  <div class="footer-columns">
-    <div class="footer-col footer-col-info">
-      <p>
-        <strong>{siteConfig.shortName} // {siteConfig.year}</strong><br />
-        {siteConfig.fullName}
-      </p>
-    </div>
+  <div class="content-container footer-main">
+    <div class="footer-columns">
+      <div class="footer-col footer-col-info">
+        <a href="https://www.bergen.org/bergencountyacademies" target="_blank" rel="noopener noreferrer" class="bca-logo-link">
+          <img src="/images/bca_logo.png" alt="Bergen County Academies Logo" class="bca-logo" />
+        </a>
+        <p class="footer-brand-text">
+          <strong>{siteConfig.shortName} // {siteConfig.year}</strong><br />
+          {siteConfig.fullName}
+        </p>
+      </div>
 
-    <div class="footer-col">
-      <h3>Connect</h3>
-      <ul class="footer-links-list">
-        <li>
-          <a href="https://www.bergen.org/bergencountyacademies" target="_blank" rel="noopener noreferrer">Bergen County Academies</a>
-        </li>
-        <li>
-          <a href="https://www.instagram.com/dhpmcc/" target="_blank" rel="noopener noreferrer">Follow us on Instagram!</a>
-        </li>
-      </ul>
-    </div>
+      <div class="footer-col">
+        <h3 class="footer-heading">Connect</h3>
+        <ul class="footer-links-list">
+          <li>
+            <a href="https://www.bergen.org/bergencountyacademies" target="_blank" rel="noopener noreferrer">Bergen County Academies</a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/dhpmcc/" target="_blank" rel="noopener noreferrer">Follow us on Instagram!</a>
+          </li>
+        </ul>
+      </div>
 
-    <div class="footer-col">
-      <h3>Contact</h3>
-      <ul class="footer-links-list">
-        <li>
-          <a href="mailto:kabsek30@bergen.org">Kabir Sekhon</a>
-        </li>
-        <li>
-          <a href="mailto:ricwer@bergen.org">Mr. Richard Wertz</a>
-        </li>
-        <li>
-          <a href="mailto:bryres@bergen.org">Mr. Bryan Respass</a>
-        </li>
-        <li>
-          <a href="mailto:micabra@bergen.org">Dr. Michael Abramson</a>
-        </li>
-      </ul>
+      <div class="footer-col">
+        <h3 class="footer-heading">Contact</h3>
+        <ul class="footer-links-list">
+          <li>
+            <a href="mailto:kabsek30@bergen.org">Kabir Sekhon</a>
+          </li>
+          <li>
+            <a href="mailto:ricwer@bergen.org">Mr. Richard Wertz</a>
+          </li>
+          <li>
+            <a href="mailto:bryres@bergen.org">Mr. Bryan Respass</a>
+          </li>
+          <li>
+            <a href="mailto:micabra@bergen.org">Dr. Michael Abramson</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 
-  <div class="footer-copyright">
-    <p>&copy; 2026-{currentYear} DHPMCC &bull; Bergen County Academies. All rights reserved.</p>
+  <div class="footer-copyright-bar">
+    <div class="content-container">
+      <p>&copy; 2026-{currentYear} DHPMCC &bull; Bergen County Academies. All rights reserved.</p>
+    </div>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 0 1.25rem 3rem 1.25rem;
     width: 100%;
-    color: #444444;
+    background-color: #12161c;
+    border-top: 1px solid #1f2733;
+    margin-top: 2.5rem;
+    color: #d1d5db;
     font-size: 0.92rem;
   }
 
-  .site-footer hr {
-    margin-bottom: 1.5rem;
+  .footer-main {
+    padding-top: 2.75rem;
+    padding-bottom: 2.5rem;
   }
 
   .footer-columns {
@@ -80,23 +87,36 @@ const currentYear = new Date().getFullYear();
     flex: 1.3 1 0;
   }
 
-  .footer-col h3 {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #111111;
-    margin: 0 0 0.65rem 0;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
+  .bca-logo-link {
+    display: inline-block;
+    margin-bottom: 0.6rem;
+    text-decoration: none;
   }
 
-  .footer-col-info p {
+  .bca-logo {
+    height: 38px;
+    width: auto;
+    display: block;
+  }
+
+  .footer-brand-text {
     margin: 0;
     line-height: 1.55;
-    color: #444444;
+    color: #9ca3af;
   }
 
-  .footer-col-info strong {
-    color: #111111;
+  .footer-brand-text strong {
+    color: #ffffff;
+  }
+
+  /* BCA Math Team Signature Gold Accent Headings */
+  .footer-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #ecc94b;
+    margin: 0 0 0.85rem 0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
   }
 
   .footer-links-list {
@@ -109,43 +129,49 @@ const currentYear = new Date().getFullYear();
   .footer-links-list li {
     list-style: none !important;
     list-style-type: none !important;
-    margin-bottom: 0.4rem;
+    margin-bottom: 0.5rem;
     padding: 0;
   }
 
   .footer-links-list a {
-    color: #444444;
-    text-decoration: none;
+    color: #f3f4f6;
+    text-decoration: underline;
     display: inline-block;
     padding: 0.15rem 0;
+    transition: color 0.15s ease;
   }
 
   .footer-links-list a:hover {
-    color: var(--color-link);
-    text-decoration: underline;
+    color: #ffffff;
   }
 
-  .footer-copyright {
-    margin-top: 1.75rem;
-    padding-top: 1rem;
-    border-top: 1px solid #f0f0f0;
-    font-size: 0.82rem;
-    color: #777777;
+  /* Darker Copyright Bar */
+  .footer-copyright-bar {
+    background-color: #0a0d11;
+    border-top: 1px solid #181f28;
+    padding: 1rem 0;
+    font-size: 0.84rem;
+    color: #838e9e;
     text-align: left;
   }
 
-  .footer-copyright p {
+  .footer-copyright-bar p {
     margin: 0;
   }
 
   @media (max-width: 680px) {
+    .footer-main {
+      padding-top: 2rem;
+      padding-bottom: 1.75rem;
+    }
+
     .footer-columns {
       flex-direction: column;
       gap: 1.75rem;
     }
 
-    .footer-links-list li {
-      margin-bottom: 0.5rem;
+    .bca-logo {
+      height: 32px;
     }
   }
 </style>

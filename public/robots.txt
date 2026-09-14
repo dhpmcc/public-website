@@ -1,2 +1,5 @@
 User-agent: *
 Allow: /
+
+Sitemap: https://dhpmcc.org/sitemap-index.xml
+

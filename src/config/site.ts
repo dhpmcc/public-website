@@ -19,6 +19,7 @@ export interface SiteConfig {
   registrationUrl: string;
   contactEmail: string;
   rulesUrl: string;
+  siteUrl: string;
   navItems: NavItem[];
 }
 
@@ -38,6 +39,7 @@ export const siteConfig: SiteConfig = {
   registrationUrl: "[REGISTRATION_URL]",
   contactEmail: "[CONTACT_EMAIL]",
   rulesUrl: "/rules",
+  siteUrl: "https://dhpmcc.org",
   navItems: [
     { label: "Home", href: "/" },
     { label: "Rules", href: "/rules" },

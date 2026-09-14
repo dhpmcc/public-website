@@ -13,6 +13,9 @@ const {
   title = "Daniel H. Plotnick Memorial Computing Competition | DHPMCC",
   description = siteConfig.description,
 } = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || siteConfig.siteUrl);
+const socialImageURL = new URL('/images/bca_logo.png', Astro.site || siteConfig.siteUrl).toString();
 ---
 
 <!doctype html>
@@ -21,6 +24,7 @@ const {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/images/bca_logo.png" />
+    <link rel="canonical" href={canonicalURL} />
     <meta name="generator" content={Astro.generator} />
     
     <title>{title}</title>
@@ -29,14 +33,18 @@ const {
 
     <!-- Open Graph / Meta -->
     <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:site_name" content={siteConfig.name} />
+    <meta property="og:image" content={socialImageURL} />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:url" content={canonicalURL} />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImageURL} />
   </head>
   <body>
     <Header />

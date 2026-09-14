@@ -1,0 +1,46 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Not Found | DHPMCC">
+  <section class="content-container not-found-section">
+    <h1 class="not-found-title">404 - Not Found</h1>
+    <p class="not-found-text">The requested page could not be found.</p>
+    <p class="not-found-actions">
+      <a href="/">&larr; Return to Home</a>
+    </p>
+  </section>
+</Layout>
+
+<style>
+  .not-found-section {
+    padding-top: 4rem;
+    padding-bottom: 6rem;
+    min-height: 50vh;
+  }
+
+  .not-found-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #111111;
+    margin: 0 0 0.75rem 0;
+  }
+
+  .not-found-text {
+    font-size: 1.05rem;
+    color: #444444;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.6;
+  }
+
+  .not-found-actions a {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-link);
+    text-decoration: underline;
+  }
+
+  .not-found-actions a:hover {
+    color: var(--color-link-hover);
+  }
+</style>

@@ -8,16 +8,9 @@ const currentYear = new Date().getFullYear();
   <div class="content-container footer-main">
     <div class="footer-columns">
       <div class="footer-col footer-col-info">
-        <div class="footer-logos">
-          <a href="https://www.bergen.org/bergencountyacademies" target="_blank" rel="noopener noreferrer" class="bca-logo-link" aria-label="Bergen County Academies">
-            <img src="/images/bca_logo.png" alt="Bergen County Academies Logo" class="footer-logo bca-logo" />
-          </a>
-          <!-- DHPMCC Logo Slot (Uncomment when dhpmcc_logo.png is added):
-          <a href="/" class="dhpmcc-logo-link" aria-label="DHPMCC">
-            <img src="/images/dhpmcc_logo.png" alt="DHPMCC Logo" class="footer-logo dhpmcc-logo" />
-          </a>
-          -->
-        </div>
+        <a href="https://www.bergen.org/bergencountyacademies" target="_blank" rel="noopener noreferrer" class="bca-logo-link" aria-label="Bergen County Academies">
+          <img src="/images/bca_logo.png" alt="Bergen County Academies Logo" class="footer-logo bca-logo" />
+        </a>
         <p class="footer-brand-text">
           <strong>{siteConfig.shortName} // {siteConfig.year}</strong><br />
           {siteConfig.fullName}
@@ -94,14 +87,13 @@ const currentYear = new Date().getFullYear();
     flex: 1.3 1 0;
   }
 
-  /* Footer Brand Logo (to be replaced by DHPMCC logo) */
   .bca-logo-link {
     display: inline-block;
     margin-bottom: 0.65rem;
     text-decoration: none;
   }
 
-  .bca-logo {
+  .footer-logo {
     height: 52px;
     width: auto;
     display: block;
@@ -178,7 +170,7 @@ const currentYear = new Date().getFullYear();
       gap: 1.75rem;
     }
 
-    .bca-logo {
+    .footer-logo {
       height: 44px;
     }
   }

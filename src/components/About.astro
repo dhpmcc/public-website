@@ -6,44 +6,39 @@ import SectionHeading from './SectionHeading.astro';
   <SectionHeading
     number="01"
     title="About the Competition"
-    subtitle="An individual competitive programming tournament hosted at Bergen County Academies."
   />
 
   <div class="about-body">
     <p>
-      The <strong>Daniel H. Plotnick Memorial Computing Competition (DHPMCC)</strong> is an in-person programming competition hosted at <strong>Bergen County Academies</strong> in Hackensack, New Jersey.
+      The <strong>Daniel H. Plotnick Memorial Computing Competition (DHPMCC)</strong> is an in-person competitive programming tournament hosted at <strong>Bergen County Academies</strong> in Hackensack, New Jersey.
     </p>
     <p>
-      DHPMCC is structured as an individual algorithmic contest. Competitors are presented with a series of original, rigorous computer science problems and are tasked with formulating and implementing optimal solutions under fixed contest constraints.
+      Competitors work individually through a series of original algorithmic problems, developing and implementing solutions within fixed time and memory constraints. The competition emphasizes problem solving, algorithmic reasoning, and efficient implementation.
     </p>
     <p>
-      The competition emphasizes deep algorithmic reasoning, time complexity optimization, and rigorous implementation over trivial coding tasks. Solutions are evaluated automatically against comprehensive sets of secret test cases on an isolated judging server.
+      DHPMCC is held in memory of Daniel H. Plotnick, honoring his contributions to mathematics, computing, and the students he inspired.
     </p>
   </div>
 </section>
 
 <style>
   .about-section {
-    padding-top: 1rem;
-    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.75rem;
+    text-align: center;
   }
 
   .about-body {
-    max-width: 760px;
+    max-width: 880px;
     margin: 0 auto;
     text-align: center;
   }
 
   .about-body p {
-    font-size: 1.05rem;
-    line-height: 1.75;
+    font-size: 1.02rem;
+    line-height: 1.68;
     color: #374151;
-    margin: 1.25rem 0;
-  }
-
-  @media (max-width: 600px) {
-    .about-body {
-      text-align: left;
-    }
+    margin: 0.95rem auto;
+    text-align: center;
   }
 </style>

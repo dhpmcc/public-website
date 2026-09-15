@@ -11,7 +11,7 @@ import { siteConfig } from '../config/site';
           <div class="slide-content">
             <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
             <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
-            <p class="slide-tagline">{siteConfig.tagline}</p>
+            <p class="slide-tagline">February 20, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
           </div>
         </div>
       </div>
@@ -20,7 +20,7 @@ import { siteConfig } from '../config/site';
           <div class="slide-content">
             <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
             <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
-            <p class="slide-tagline">{siteConfig.tagline}</p>
+            <p class="slide-tagline">February 20, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
           </div>
         </div>
       </div>
@@ -29,7 +29,7 @@ import { siteConfig } from '../config/site';
           <div class="slide-content">
             <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
             <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
-            <p class="slide-tagline">{siteConfig.tagline}</p>
+            <p class="slide-tagline">February 20, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
           </div>
         </div>
       </div>
@@ -41,18 +41,6 @@ import { siteConfig } from '../config/site';
       <button class="dot" type="button" aria-label="Slide 2" data-index="1"></button>
       <button class="dot" type="button" aria-label="Slide 3" data-index="2"></button>
     </div>
-  </div>
-
-  <!-- Contest Details Row (Contained, clean, non-carded) -->
-  <div class="content-container hero-meta-container">
-    <ul class="hero-meta">
-      <li><strong>Date:</strong> {siteConfig.date}</li>
-      <li><strong>Location:</strong> {siteConfig.location} ({siteConfig.venueDetail})</li>
-    </ul>
-
-    <p class="hero-actions">
-      <a href={siteConfig.registrationUrl}>Register</a> | <a href="#about">Learn more</a>
-    </p>
   </div>
 </section>
 
@@ -129,14 +117,14 @@ import { siteConfig } from '../config/site';
 
 <style>
   .hero-section {
-    margin-bottom: 1.25rem;
+    margin-bottom: 0;
   }
 
   /* Full-width JHMMC Banner Styling */
   .gallery-container {
     position: relative;
     width: 100%;
-    height: 420px;
+    height: 390px;
     background-color: #111418;
     overflow: hidden;
   }
@@ -172,9 +160,9 @@ import { siteConfig } from '../config/site';
     align-items: center;
     background: linear-gradient(
       to right,
-      rgba(0, 0, 0, 0.72) 0%,
-      rgba(0, 0, 0, 0.55) 50%,
-      rgba(0, 0, 0, 0.4) 100%
+      rgba(0, 0, 0, 0.75) 0%,
+      rgba(0, 0, 0, 0.58) 50%,
+      rgba(0, 0, 0, 0.42) 100%
     );
   }
 
@@ -240,43 +228,6 @@ import { siteConfig } from '../config/site';
     transform: scale(1.2);
   }
 
-  /* Contest details below the banner */
-  .hero-meta-container {
-    margin-top: 1.25rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.25rem;
-  }
-
-  .hero-meta {
-    list-style: none;
-    padding-left: 0;
-    margin: 0;
-  }
-
-  .hero-meta li {
-    margin-bottom: 0.25rem;
-    color: #333333;
-    font-size: 0.98rem;
-  }
-
-  .hero-actions {
-    font-size: 1.05rem;
-    margin: 0;
-  }
-
-  .hero-actions a {
-    font-weight: 600;
-    color: var(--color-link);
-  }
-
-  .hero-actions a:hover {
-    color: var(--color-link-hover);
-    text-decoration: underline;
-  }
-
   @media (max-width: 720px) {
     .gallery-container {
       height: 320px;
@@ -288,12 +239,6 @@ import { siteConfig } from '../config/site';
 
     .slide-tagline {
       font-size: 1.05rem;
-    }
-
-    .hero-meta-container {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 1rem;
     }
   }
 
@@ -324,16 +269,6 @@ import { siteConfig } from '../config/site';
 
     .gallery-dots {
       bottom: 0.75rem;
-    }
-
-    .hero-actions {
-      display: flex;
-      gap: 0.75rem;
-      align-items: center;
-    }
-
-    .hero-actions a {
-      padding: 0.35rem 0;
     }
   }
 </style>

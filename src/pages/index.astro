@@ -4,10 +4,20 @@ import Masthead from '../components/Masthead.astro';
 import About from '../components/About.astro';
 import Languages from '../components/Languages.astro';
 import Sponsors from '../components/Sponsors.astro';
+import { siteConfig } from '../config/site';
 ---
 
 <Layout>
   <Masthead />
+  
+  <div class="content-container">
+    <div class="section home-summary">
+      <blockquote>
+        Registration for the first annual Daniel H. Plotnick Memorial Computing Competition is open. <a href={siteConfig.registrationUrl}>Register for {siteConfig.year} &rarr;</a>
+      </blockquote>
+    </div>
+  </div>
+
   <hr />
   <About />
   <hr />
@@ -15,3 +25,29 @@ import Sponsors from '../components/Sponsors.astro';
   <hr />
   <Sponsors />
 </Layout>
+
+<style>
+  .home-summary {
+    padding-top: 0.85rem;
+    padding-bottom: 0.15rem;
+  }
+
+  .home-summary blockquote {
+    margin: 0.5rem 0 0.5rem 0;
+    padding: 0.25rem 0 0.25rem 1.25rem;
+    border-left: 4px solid var(--color-link);
+    font-size: 1.02rem;
+    line-height: 1.6;
+    color: #374151;
+  }
+
+  .home-summary blockquote a {
+    color: var(--color-link);
+    text-decoration: underline;
+    font-weight: 600;
+  }
+
+  .home-summary blockquote a:hover {
+    color: var(--color-link-hover);
+  }
+</style>

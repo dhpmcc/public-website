@@ -58,13 +58,14 @@ hr {
   border: 0;
   border-top: 1px solid #f0f0f0;
   max-width: calc(var(--max-width) - 4rem);
-  margin: 2.5rem auto;
+  margin: 1.25rem auto;
   width: calc(100% - 4rem);
 }
 
 @media (max-width: 768px) {
   hr {
     max-width: calc(var(--max-width) - 2.5rem);
+    margin: 1rem auto;
     width: calc(100% - 2.5rem);
   }
 }

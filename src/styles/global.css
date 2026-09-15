@@ -9,7 +9,7 @@
   --color-link-hover: #500000;
   --color-border: #e0e0e0;
   --color-bg-subtle: #f8f9fa;
-  --max-width: 900px;
+  --max-width: 1280px;
 }
 
 *, *::before, *::after {
@@ -43,16 +43,30 @@ body {
 .content-container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 2rem;
   width: 100%;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 0 1.25rem;
+  }
 }
 
 /* Subtle section divider */
 hr {
   border: 0;
   border-top: 1px solid #f0f0f0;
-  max-width: 800px;
-  margin: 2rem auto;
+  max-width: calc(var(--max-width) - 4rem);
+  margin: 2.5rem auto;
+  width: calc(100% - 4rem);
+}
+
+@media (max-width: 768px) {
+  hr {
+    max-width: calc(var(--max-width) - 2.5rem);
+    width: calc(100% - 2.5rem);
+  }
 }
 
 /* Typography */

@@ -1,27 +1,6 @@
-# License
-
-All code and software structural files within this repository (including
-`.astro` files, components, layouts, Tailwind/CSS configurations, and scripts)
-are licensed under the MIT License. See the text below for details.
-
-## Proprietary Content & Assets Exception
-
-All rights reserved. The following assets are strictly excluded from the
-open-source license:
-* Any files located in the `public/` directory or `src/assets/` containing
-  brand logos, sponsor trademarks, or event graphics.
-* All website copy, competition descriptions, rules, text content, and data
-  strings written within the components or content collections.
-
-These items are the intellectual property of the competition organizers and
-their respective sponsors. No license is granted for their duplication,
-modification, or redistribution.
-
----
-
 MIT License
 
-Copyright (c) 2026 Daniel H. Plotnick Memorial Computing Competition
+Copyright (c) 2026 Bergen County Academies
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

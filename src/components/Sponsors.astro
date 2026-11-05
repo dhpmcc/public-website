@@ -15,19 +15,13 @@ import { sponsors } from '../config/site';
 
   <div class="tier-block">
     <h3 class="tier-title">Platinum Tier</h3>
-    <p class="tier-desc"><em>Supports company logo and name.</em></p>
     {sponsors.platinum.length > 0 ? (
       <ul class="sponsor-list">
         {sponsors.platinum.map((sponsor) => (
           <li class="sponsor-item">
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
             {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
-            <p>
-              {sponsor.url ? (
-                <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
-              ) : (
-                sponsor.name
-              )}
-            </p>
+            </a>
           </li>
         ))}
       </ul>
@@ -38,19 +32,13 @@ import { sponsors } from '../config/site';
 
   <div class="tier-block">
     <h3 class="tier-title">Gold Tier</h3>
-    <p class="tier-desc"><em>Supports company logo and name.</em></p>
     {sponsors.gold.length > 0 ? (
       <ul class="sponsor-list">
         {sponsors.gold.map((sponsor) => (
           <li class="sponsor-item">
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
             {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
-            <p>
-              {sponsor.url ? (
-                <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
-              ) : (
-                sponsor.name
-              )}
-            </p>
+            </a>
           </li>
         ))}
       </ul>
@@ -61,16 +49,30 @@ import { sponsors } from '../config/site';
 
   <div class="tier-block">
     <h3 class="tier-title">Silver Tier</h3>
-    <p class="tier-desc"><em>Supports text-only listing.</em></p>
     {sponsors.silver.length > 0 ? (
       <ul class="sponsor-list">
         {sponsors.silver.map((sponsor) => (
           <li class="sponsor-item">
-            {sponsor.url ? (
-              <a href={sponsor.url} target="_blank" rel="noopener noreferrer">{sponsor.name}</a>
-            ) : (
-              sponsor.name
-            )}
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
+            </a>
+          </li>
+        ))}
+      </ul>
+    ) : (
+      <p class="empty-notice">[Sponsor opportunities available]</p>
+    )}
+  </div>
+
+  <div class="tier-block">
+    <h3 class="tier-title">In-Kind Sponsors</h3>
+    {sponsors.inKind.length > 0 ? (
+      <ul class="sponsor-list">
+        {sponsors.inKind.map((sponsor) => (
+          <li class="sponsor-item">
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
+            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
+            </a>
           </li>
         ))}
       </ul>
@@ -125,8 +127,8 @@ import { sponsors } from '../config/site';
   }
 
   .sponsor-logo {
-    max-height: 52px;
-    max-width: 190px;
+    max-height: 100px;
+    max-width: 300px;
     object-fit: contain;
     display: block;
     margin: 0 auto 0.4rem auto;

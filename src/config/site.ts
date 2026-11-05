@@ -166,10 +166,24 @@ export interface SponsorsConfig {
   platinum: Sponsor[];
   gold: Sponsor[];
   silver: Sponsor[];
+  inKind: Sponsor[];
 }
+
+export const non_trivial: Sponsor = {
+  name: "Non-Trivial",
+  url: "https://www.non-trivial.org/",
+  logo: "/images/sponsors/non_trivial.png",
+};
+
+export const bca: Sponsor = {
+  name: "Bergen County Academies",
+  url: "https://www.bergen.org/",
+  logo: "/images/sponsors/bca.png",
+};
 
 export const sponsors: SponsorsConfig = {
   platinum: [],
   gold: [],
   silver: [],
+  inKind: [non_trivial, bca],
 };

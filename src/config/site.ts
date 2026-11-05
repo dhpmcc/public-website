@@ -178,7 +178,7 @@ export const non_trivial: Sponsor = {
 export const art_of_problem_solving: Sponsor = {
   name: "Art of Problem Solving (AoPS)",
   url: "https://www.artofproblemsolving.com/",
-  logo: "/images/sponsors/art_of_problems_solving.png",
+  logo: "/images/sponsors/art_of_problem_solving.png",
 };
 
 export const bca: Sponsor = {

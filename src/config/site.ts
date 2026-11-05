@@ -175,6 +175,12 @@ export const non_trivial: Sponsor = {
   logo: "/images/sponsors/non_trivial.png",
 };
 
+export const art_of_problem_solving: Sponsor = {
+  name: "Art of Problem Solving (AoPS)",
+  url: "https://www.artofproblemsolving.com/",
+  logo: "/images/sponsors/art_of_problems_solving.png",
+};
+
 export const bca: Sponsor = {
   name: "Bergen County Academies",
   url: "https://www.bergen.org/",
@@ -185,5 +191,5 @@ export const sponsors: SponsorsConfig = {
   platinum: [],
   gold: [],
   silver: [],
-  inKind: [non_trivial, bca],
+  inKind: [non_trivial, art_of_problem_solving, bca],
 };

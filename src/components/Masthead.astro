@@ -2,6 +2,18 @@
 import { siteConfig } from '../config/site';
 ---
 
+<!-- Simple Header (No background images or carousel dots) -->
+<section id="top" class="hero-section">
+  <div class="hero-banner" aria-label="Competition Banner">
+    <div class="slide-content">
+      <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
+      <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
+      <p class="slide-tagline">February 20, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
+    </div>
+  </div>
+</section>
+
+{/*
 <section id="top" class="hero-section">
   <!-- Full-Width Scrolling Photo Gallery (JHMMC Style with Direct Text Overlay) -->
   <div class="gallery-container" aria-label="Competition Banner">
@@ -43,6 +55,7 @@ import { siteConfig } from '../config/site';
     </div>
   </div>
 </section>
+*/}
 
 <script>
   const gallery = document.querySelector('.gallery-container');
@@ -118,6 +131,17 @@ import { siteConfig } from '../config/site';
 <style>
   .hero-section {
     margin-bottom: 0;
+  }
+
+  /* Simple Header Banner Styling */
+  .hero-banner {
+    position: relative;
+    width: 100%;
+    min-height: 390px;
+    background-color: #111418;
+    background: radial-gradient(circle at center, #2d3748 0%, #11151a 100%);
+    display: flex;
+    align-items: center;
   }
 
   /* Full-width JHMMC Banner Styling */
@@ -229,8 +253,10 @@ import { siteConfig } from '../config/site';
   }
 
   @media (max-width: 720px) {
-    .gallery-container {
-      height: 320px;
+    .gallery-container,
+    .hero-banner {
+      min-height: 320px;
+      height: auto;
     }
 
     .slide-title {
@@ -243,8 +269,10 @@ import { siteConfig } from '../config/site';
   }
 
   @media (max-width: 540px) {
-    .gallery-container {
-      height: 290px;
+    .gallery-container,
+    .hero-banner {
+      min-height: 290px;
+      height: auto;
     }
 
     .slide-content {

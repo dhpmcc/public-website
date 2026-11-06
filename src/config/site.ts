@@ -185,7 +185,13 @@ export const bca: Sponsor = {
   logo: "/images/sponsors/bca.png",
 };
 
+export const eleven_labs: Sponsor = {
+  name: "Eleven Labs",
+  url: "https://elevenlabs.io/",
+  logo: "/images/sponsors/eleven_labs.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [non_trivial, art_of_problem_solving],
+  inKind: [non_trivial, art_of_problem_solving, eleven_labs],
 };

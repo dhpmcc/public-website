@@ -163,9 +163,7 @@ export interface Sponsor {
 }
 
 export interface SponsorsConfig {
-  platinum: Sponsor[];
-  gold: Sponsor[];
-  silver: Sponsor[];
+  main: Sponsor[];
   inKind: Sponsor[];
 }
 
@@ -188,8 +186,6 @@ export const bca: Sponsor = {
 };
 
 export const sponsors: SponsorsConfig = {
-  platinum: [],
-  gold: [],
-  silver: [],
-  inKind: [non_trivial, art_of_problem_solving, bca],
+  main: [bca],
+  inKind: [non_trivial, art_of_problem_solving],
 };

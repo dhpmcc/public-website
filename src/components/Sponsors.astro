@@ -1,6 +1,8 @@
 ---
 import SectionHeading from './SectionHeading.astro';
 import { sponsors } from '../config/site';
+
+const mainSponsors = sponsors.main || [];
 ---
 
 <section id="sponsors" class="content-container sponsors-section">
@@ -13,14 +15,14 @@ import { sponsors } from '../config/site';
     <a href="mailto:kabsek30@bergen.org?subject=DHPMCC%20Sponsorship%20Inquiry">Interested in Sponsoring?</a>
   </p>
 
-  <div class="tier-block">
-    <h3 class="tier-title">Platinum Tier</h3>
-    {sponsors.platinum.length > 0 ? (
-      <ul class="sponsor-list">
-        {sponsors.platinum.map((sponsor) => (
-          <li class="sponsor-item">
-            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
+  <!-- Main Sponsors (Big section) -->
+  <div class="sponsors-main">
+    {mainSponsors.length > 0 ? (
+      <ul class="sponsor-list main-sponsor-list">
+        {mainSponsors.map((sponsor) => (
+          <li class="sponsor-item main-sponsor-item">
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link main-sponsor-link" aria-label={`Visit ${sponsor.name}`}>
+              {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo main-sponsor-logo" />}
             </a>
           </li>
         ))}
@@ -30,48 +32,17 @@ import { sponsors } from '../config/site';
     )}
   </div>
 
-  <div class="tier-block">
-    <h3 class="tier-title">Gold Tier</h3>
-    {sponsors.gold.length > 0 ? (
-      <ul class="sponsor-list">
-        {sponsors.gold.map((sponsor) => (
-          <li class="sponsor-item">
-            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="empty-notice">[Sponsor opportunities available]</p>
-    )}
-  </div>
+  <!-- Clear full-width divider spanning the entire length of the section -->
+  <hr class="sponsors-divider" />
 
-  <div class="tier-block">
-    <h3 class="tier-title">Silver Tier</h3>
-    {sponsors.silver.length > 0 ? (
-      <ul class="sponsor-list">
-        {sponsors.silver.map((sponsor) => (
-          <li class="sponsor-item">
-            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="empty-notice">[Sponsor opportunities available]</p>
-    )}
-  </div>
-
-  <div class="tier-block">
-    <h3 class="tier-title">In-Kind Sponsors</h3>
+  <!-- In-Kind Sponsors (Small section) -->
+  <div class="sponsors-inkind">
     {sponsors.inKind.length > 0 ? (
-      <ul class="sponsor-list">
+      <ul class="sponsor-list inkind-list">
         {sponsors.inKind.map((sponsor) => (
-          <li class="sponsor-item">
-            <a href={sponsor.url} target="_blank" rel="noopener noreferrer">
-            {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo" />}
+          <li class="sponsor-item inkind-item">
+            <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link inkind-link" aria-label={`Visit ${sponsor.name}`}>
+              {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo inkind-logo" />}
             </a>
           </li>
         ))}
@@ -90,54 +61,148 @@ import { sponsors } from '../config/site';
   }
 
   .sponsor-inquiry {
-    margin-bottom: 1.25rem;
+    margin-bottom: 1.5rem;
     font-size: 0.98rem;
   }
 
-  .tier-block {
-    margin-bottom: 1.5rem;
-  }
-
-  .tier-title {
-    margin-top: 1rem;
-    margin-bottom: 0.2rem;
-    font-size: 1.15rem;
-    color: #1a202c;
-  }
-
-  .tier-desc {
-    color: #718096;
-    font-size: 0.9rem;
-    margin: 0 0 0.65rem 0;
+  /* Big Section: Main / Featured Sponsors */
+  .sponsors-main {
+    margin: 1.5rem 0;
   }
 
   .sponsor-list {
     list-style: none;
     padding-left: 0;
+    margin: 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 2rem;
-    margin: 0.75rem 0;
   }
 
   .sponsor-item {
     margin: 0;
   }
 
-  .sponsor-logo {
-    max-height: 100px;
-    max-width: 300px;
+  .sponsor-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .main-sponsor-list {
+    gap: clamp(2.5rem, 6vw, 4.5rem);
+    padding: 0.75rem 0;
+  }
+
+  .main-sponsor-link:hover,
+  .main-sponsor-link:focus-visible {
+    transform: translateY(-3px);
+  }
+
+  .main-sponsor-logo {
+    max-height: 120px;
+    max-width: 310px;
+    width: auto;
+    height: auto;
     object-fit: contain;
     display: block;
-    margin: 0 auto 0.4rem auto;
+    margin: 0 auto;
+  }
+
+  /* Clear full-width divider spanning the entire length of the section */
+  .sponsors-divider {
+    border: 0;
+    border-top: 1.5px solid #cbd5e1;
+    width: 100%;
+    max-width: 100%;
+    margin: 2.5rem 0 2rem 0;
+  }
+
+  /* Small Section: In-Kind Sponsors */
+  .sponsors-inkind {
+    margin: 0.75rem 0 1.25rem 0;
+  }
+
+  .inkind-list {
+    gap: clamp(1.5rem, 3.5vw, 2.75rem);
+    padding: 0.5rem 0;
+  }
+
+  .inkind-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .inkind-link {
+    padding: 0.25rem 0.4rem;
+    opacity: 0.86;
+    border-radius: 4px;
+  }
+
+  .inkind-link:hover,
+  .inkind-link:focus-visible {
+    opacity: 1;
+    transform: translateY(-2px);
+  }
+
+  .inkind-logo {
+    max-height: 42px;
+    max-width: 130px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
   }
 
   .empty-notice {
     color: #718096;
     font-size: 0.95rem;
     font-style: italic;
-    margin: 0.5rem 0;
+    margin: 0.75rem 0;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .sponsor-link,
+    .main-sponsor-link,
+    .inkind-link {
+      transition: none;
+      transform: none;
+    }
+
+    .main-sponsor-link:hover,
+    .main-sponsor-link:focus-visible,
+    .inkind-link:hover,
+    .inkind-link:focus-visible {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .main-sponsor-list {
+      gap: 2rem;
+    }
+
+    .main-sponsor-logo {
+      max-height: 75px;
+      max-width: 220px;
+    }
+
+    .sponsors-divider {
+      margin: 2rem 0 1.5rem 0;
+    }
+
+    .inkind-list {
+      gap: 1.25rem;
+    }
+
+    .inkind-logo {
+      max-height: 26px;
+      max-width: 90px;
+    }
   }
 </style>

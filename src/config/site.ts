@@ -186,7 +186,7 @@ export const bca: Sponsor = {
 };
 
 export const eleven_labs: Sponsor = {
-  name: "Eleven Labs",
+  name: "ElevenLabs",
   url: "https://elevenlabs.io/",
   logo: "/images/sponsors/eleven_labs.png",
 };

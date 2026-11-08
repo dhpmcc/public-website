@@ -191,7 +191,13 @@ export const eleven_labs: Sponsor = {
   logo: "/images/sponsors/eleven_labs.png",
 };
 
+export const mlh_pure_buttons: Sponsor = {
+  name: "Pure Buttons",
+  url: "https://mlh.link/MLH-PureButtons-hackathons",
+  logo: "/images/sponsors/mlh_pure_buttons.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [non_trivial, art_of_problem_solving, eleven_labs],
+  inKind: [non_trivial, eleven_labs, art_of_problem_solving, mlh_pure_buttons ],
 };

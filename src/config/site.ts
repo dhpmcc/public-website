@@ -205,5 +205,5 @@ export const pcbway: Sponsor = {
 
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [non_trivial, eleven_labs, art_of_problem_solving, pcbway, mlh_pure_buttons ],
+  inKind: [non_trivial, eleven_labs, art_of_problem_solving, pcbway, mlh_pure_buttons],
 };

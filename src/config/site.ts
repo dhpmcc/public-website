@@ -197,7 +197,13 @@ export const mlh_pure_buttons: Sponsor = {
   logo: "/images/sponsors/mlh_pure_buttons.png",
 };
 
+export const pcbway: Sponsor = {
+  name: "PCBWay",
+  url: "https://www.pcbway.com/",
+  logo: "/images/sponsors/pcbway.svg",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [non_trivial, eleven_labs, art_of_problem_solving, mlh_pure_buttons ],
+  inKind: [non_trivial, eleven_labs, art_of_problem_solving, pcbway, mlh_pure_buttons ],
 };

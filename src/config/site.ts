@@ -200,7 +200,7 @@ export const mlh_pure_buttons: Sponsor = {
 export const pcbway: Sponsor = {
   name: "PCBWay",
   url: "https://www.pcbway.com/",
-  logo: "/images/sponsors/pcbway.svg",
+  logo: "/images/sponsors/pcbway.png",
 };
 
 export const sponsors: SponsorsConfig = {

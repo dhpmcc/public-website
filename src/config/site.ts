@@ -203,7 +203,13 @@ export const pcbway: Sponsor = {
   logo: "/images/sponsors/pcbway.png",
 };
 
+export const rise_research: Sponsor = {
+  name: "RISE Research",
+  url: "https://riseglobaleducation.com/",
+  logo: "/images/sponsors/rise_research.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [non_trivial, eleven_labs, art_of_problem_solving, pcbway, mlh_pure_buttons],
+  inKind: [non_trivial, eleven_labs, art_of_problem_solving, rise_research, pcbway, mlh_pure_buttons],
 };

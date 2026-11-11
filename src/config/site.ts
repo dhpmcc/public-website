@@ -30,7 +30,7 @@ export const siteConfig: SiteConfig = {
   tagline: "A programming competition hosted at Bergen County Academies.",
   description: "The Daniel H. Plotnick Memorial Computing Competition (DHPMCC) is an in-person competitive programming tournament hosted at Bergen County Academies in Hackensack, New Jersey.",
   year: "2027",
-  date: "February 20, 2027",
+  date: "March 13, 2027",
   location: "Bergen County Academies",
   venueDetail: "Hackensack, New Jersey",
   format: "In-person",

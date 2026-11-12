@@ -217,5 +217,5 @@ export const jane_street: Sponsor = {
 
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [jane_street, eleven_labs, art_of_problem_solving, non_trivial, rise_research, pcbway, mlh_pure_buttons],
+  inKind: [jane_street, eleven_labs, art_of_problem_solving, non_trivial, rise_research, pcbway],
 };

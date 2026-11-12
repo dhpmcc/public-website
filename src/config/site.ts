@@ -209,7 +209,13 @@ export const rise_research: Sponsor = {
   logo: "/images/sponsors/rise_research.png",
 };
 
+export const jane_street: Sponsor = {
+  name: "Jane Street",
+  url: "https://www.janestreet.com/",
+  logo: "/images/sponsors/jane_street.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [non_trivial, eleven_labs, art_of_problem_solving, rise_research, pcbway, mlh_pure_buttons],
+  inKind: [jane_street, eleven_labs, art_of_problem_solving, non_trivial, rise_research, pcbway, mlh_pure_buttons],
 };

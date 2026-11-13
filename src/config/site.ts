@@ -209,13 +209,43 @@ export const rise_research: Sponsor = {
   logo: "/images/sponsors/rise_research.png",
 };
 
-export const jane_street: Sponsor = {
+export const TENT_jane_street: Sponsor = {
   name: "Jane Street",
   url: "https://www.janestreet.com/",
   logo: "/images/sponsors/jane_street.png",
 };
 
+export const TENT_mongodb: Sponsor = {
+  name: "MongoDB",
+  url: "https://www.mongodb.com/",
+  logo: "/images/sponsors/mongodb.png",
+};
+
+export const TENT_columbia_university: Sponsor = {
+  name: "Columbia University",
+  url: "https://www.columbia.edu/",
+  logo: "/images/sponsors/columbia_university.png",
+};
+
+export const TENT_major_league_hacking: Sponsor = {
+  name: "Major League Hacking (MLH)",
+  url: "https://www.mlh.com/",
+  logo: "/images/sponsors/major_league_hacking.png",
+};
+
+export const TENT_interview_cake: Sponsor = {
+  name: "Interview Cake",
+  url: "https://www.interviewcake.com/",
+  logo: "/images/sponsors/interview_cake.png",
+};
+
+export const TENT_jetbrains: Sponsor = {
+  name: "JetBrains",
+  url: "https://www.jetbrains.com/",
+  logo: "/images/sponsors/jetbrains.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [jane_street, eleven_labs, art_of_problem_solving, non_trivial, rise_research, pcbway],
+  inKind: [TENT_jane_street, art_of_problem_solving, TENT_columbia_university, eleven_labs, TENT_jetbrains, TENT_mongodb, non_trivial, rise_research, TENT_major_league_hacking, TENT_interview_cake, pcbway, mlh_pure_buttons],
 };

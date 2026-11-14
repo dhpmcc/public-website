@@ -16,12 +16,9 @@ import SectionHeading from './SectionHeading.astro';
         <p class="about-text">
           Competitors work individually through a series of original algorithmic problems, developing and implementing solutions within fixed time and memory constraints. The competition emphasizes problem solving, algorithmic reasoning, and efficient implementation.
         </p>
-
-        <div class="memorial-callout">
-          <p class="memorial-text">
-            DHPMCC is held in loving memory of <strong>Daniel H. Plotnick</strong>, a beloved educator and coach of the Bergen County Academies Math Team. Renowned for his extraordinary kindness, gentle encouragement, and profound dedication to education, Mr. Plotnick inspired generations of students to discover the beauty of mathematics and computing. He cared deeply for each learner, creating a welcoming community where curiosity was celebrated, tough problems were met with optimism, and every student was empowered to grow. This competition honors his enduring legacy, carrying forward the passion for learning, problem-solving, and camaraderie that he shared so generously.
-          </p>
-        </div>
+        <p class="about-text">
+          The tournament is held in memory of <strong>Daniel H. Plotnick</strong>, a beloved BCA Math Team coach celebrated for his kindness, dedication, and caring mentorship. We honor his enduring legacy by fostering the same curiosity and passion for problem solving that he inspired in every student.
+        </p>
       </div>
     </div>
   </div>
@@ -62,29 +59,16 @@ import SectionHeading from './SectionHeading.astro';
     font-size: 1.05rem;
     line-height: 1.8;
     color: #475569;
-    margin: 0 0 1.5rem 0;
+    margin: 0 0 1.35rem 0;
   }
 
-  /* Dignified memorial tribute callout */
-  .memorial-callout {
-    border-left: 3px solid #8b0000;
-    background-color: #fdf8f8;
-    padding: 1.5rem 1.85rem;
-    border-radius: 0 14px 14px 0;
-    margin-top: 2.25rem;
-    text-align: left;
+  .about-text:last-child {
+    margin-bottom: 0;
   }
 
-  .memorial-text {
-    font-size: 1.02rem;
-    line-height: 1.75;
-    color: #475569;
-    margin: 0;
-  }
-
-  .memorial-text strong {
+  .about-text strong,
+  .about-lead strong {
     color: #0f172a;
-    font-weight: 700;
   }
 
   @media (max-width: 768px) {
@@ -103,10 +87,6 @@ import SectionHeading from './SectionHeading.astro';
 
     .about-text {
       font-size: 0.98rem;
-    }
-
-    .memorial-callout {
-      padding: 1rem 1.25rem;
     }
   }
 </style>

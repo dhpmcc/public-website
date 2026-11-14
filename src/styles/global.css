@@ -33,6 +33,8 @@ body {
   display: flex;
   flex-direction: column;
   background-color: #ffffff;
+  font-family: var(--font-main);
+  color: var(--color-text);
 }
 
 #main-content {
@@ -55,7 +57,7 @@ body {
   }
 }
 
-/* Typography */
+/* Typography Defaults */
 h1, h2, h3, h4, h5, h6 {
   color: #0f172a;
   font-weight: 700;
@@ -108,4 +110,212 @@ li {
 code, pre {
   font-family: var(--font-mono);
   font-size: 0.9em;
+}
+
+/* ==========================================================================
+   Critical Section & Layout Structures (Prevents FOUC & Pop-in Size Shifts)
+   ========================================================================== */
+
+/* Section Headers */
+.section-header {
+  margin-top: 0;
+  margin-bottom: 3.5rem;
+  text-align: center;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: #8b0000;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #0f172a;
+  margin: 0;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  margin: 0.95rem auto 0 auto;
+  color: #64748b;
+  font-size: 1.1rem;
+  line-height: 1.6;
+  max-width: 720px;
+}
+
+/* About Section Critical Dimensions */
+.about-section {
+  width: 100%;
+  background-color: #ffffff;
+  padding: 6rem 0;
+}
+
+.about-frame {
+  max-width: 960px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  padding: 3.5rem 3.5rem 3.25rem 3.5rem;
+  box-shadow: 0 4px 25px -2px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.about-frame .section-header {
+  margin-bottom: 2.25rem;
+}
+
+.about-body {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.about-lead {
+  font-size: 1.15rem;
+  line-height: 1.8;
+  color: #1e293b;
+  margin: 0 0 1.25rem 0;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: #475569;
+  margin: 0 0 1.35rem 0;
+}
+
+.about-text:last-child {
+  margin-bottom: 0;
+}
+
+/* Format / How It Works Critical Dimensions */
+.format-section {
+  width: 100%;
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+  padding: 6.5rem 0;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.format-content {
+  max-width: 980px;
+  margin: 0 auto;
+}
+
+.format-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.75rem;
+}
+
+.format-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  padding: 2.25rem;
+  text-align: left;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.languages-block {
+  margin-top: 3.5rem;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.04);
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.languages-table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 340px;
+  margin: 0;
+}
+
+/* Divisions & Schedule Critical Dimensions */
+.divisions-section,
+.schedule-section,
+.sponsors-section {
+  width: 100%;
+  padding: 6.5rem 0;
+  box-sizing: border-box;
+}
+
+.divisions-section {
+  background-color: #ffffff;
+}
+
+.schedule-section {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.sponsors-section {
+  background-color: #ffffff;
+}
+
+.divisions-content {
+  max-width: 1080px;
+  margin: 0 auto;
+}
+
+.divisions-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.schedule-content {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+/* Mobile Adjustments */
+@media (max-width: 768px) {
+  .section-header {
+    margin-bottom: 2.25rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .about-section,
+  .format-section,
+  .divisions-section,
+  .schedule-section,
+  .sponsors-section {
+    padding: 4rem 0;
+  }
+
+  .about-frame {
+    padding: 2.25rem 1.5rem;
+    border-radius: 16px;
+  }
+
+  .format-cards-grid,
+  .divisions-grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
 }

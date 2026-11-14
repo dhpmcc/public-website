@@ -1,0 +1,306 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { seminarSpeakers, siteConfig } from '../config/site';
+---
+
+<Layout title="Workshops & Seminars // DHPMCC 2027">
+  <div class="content-container workshops-page">
+    <header class="page-header">
+      <p class="page-eyebrow">DHPMCC {siteConfig.year}</p>
+      <h1 class="page-title">Workshops &amp; Seminars</h1>
+      <p class="page-subtitle">
+        Distinguished guest speakers and technical seminars taking place during the competition lunch window (12:30 PM – 2:00 PM).
+      </p>
+    </header>
+
+    <!-- 1 Speaker Per Row - Wide Landscape Cards -->
+    <section class="speakers-section" aria-label="Featured Speakers">
+      <div class="speakers-list">
+        {seminarSpeakers.map((speaker) => (
+          <article class="speaker-card">
+            <div class="speaker-photo-pane">
+              <img
+                src={speaker.photo}
+                alt={`Photo of ${speaker.name}`}
+                class="speaker-photo"
+                loading="eager"
+              />
+            </div>
+
+            <div class="speaker-content-pane">
+              <div class="speaker-title-block">
+                <h2 class="speaker-name">{speaker.name}</h2>
+                <p class="speaker-role">{speaker.role}</p>
+              </div>
+
+              <div class="topic-box">
+                <span class="topic-label">Lecture Topic</span>
+                <p class="topic-title">{speaker.lectureTopic}</p>
+              </div>
+
+              <p class="speaker-bio">{speaker.bio}</p>
+            </div>
+          </article>
+        ))}
+
+        <!-- Upcoming Speaker Slot (Wide Horizontal Banner) -->
+        <div class="placeholder-card">
+          <div class="placeholder-icon" aria-hidden="true">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="22"></line>
+            </svg>
+          </div>
+          <div class="placeholder-text-wrap">
+            <h2 class="placeholder-title">More Speakers Coming Soon</h2>
+            <p class="placeholder-text">
+              Additional guest lectures and workshop details will be announced leading up to contest day.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .workshops-page {
+    padding-top: 4.5rem;
+    padding-bottom: 6.5rem;
+    max-width: 1040px;
+    margin: 0 auto;
+  }
+
+  /* Header Section */
+  .page-header {
+    margin-bottom: 3.5rem;
+  }
+
+  .page-eyebrow {
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: #8b0000;
+    margin: 0 0 0.5rem 0;
+  }
+
+  .page-title {
+    font-size: clamp(2.2rem, 4vw, 2.85rem);
+    font-weight: 800;
+    color: #0f172a;
+    letter-spacing: -0.025em;
+    margin: 0 0 1rem 0;
+    line-height: 1.15;
+  }
+
+  .page-subtitle {
+    font-size: 1.15rem;
+    color: #475569;
+    max-width: 760px;
+    line-height: 1.65;
+    margin: 0;
+  }
+
+  /* 1 Speaker Per Row */
+  .speakers-section {
+    width: 100%;
+  }
+
+  .speakers-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2.75rem;
+    width: 100%;
+  }
+
+  /* Wide Split Speaker Card */
+  .speaker-card {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.05);
+    display: grid;
+    grid-template-columns: 340px 1fr;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .speaker-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.08);
+    border-color: #cbd5e1;
+  }
+
+  /* Prominent Photo Pane (Takes up the whole side of the box) */
+  .speaker-photo-pane {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 340px;
+    background-color: #0f172a;
+    overflow: hidden;
+  }
+
+  .speaker-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  .speaker-card:hover .speaker-photo {
+    transform: scale(1.02);
+  }
+
+  /* Right Side Content Pane */
+  .speaker-content-pane {
+    padding: 2.75rem 3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #ffffff;
+  }
+
+  .speaker-title-block {
+    margin-bottom: 1.5rem;
+  }
+
+  .speaker-name {
+    font-size: 1.85rem;
+    font-weight: 800;
+    color: #0f172a;
+    line-height: 1.2;
+    margin: 0 0 0.4rem 0;
+    letter-spacing: -0.015em;
+  }
+
+  .speaker-role {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #8b0000;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Lecture Topic Box */
+  .topic-box {
+    background-color: #f8fafc;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 1.15rem 1.4rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .topic-label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #64748b;
+    margin-bottom: 0.35rem;
+  }
+
+  .topic-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Quick Bio */
+  .speaker-bio {
+    font-size: 1.02rem;
+    line-height: 1.7;
+    color: #475569;
+    margin: 0;
+  }
+
+  /* Placeholder / Coming Soon Wide Card */
+  .placeholder-card {
+    border: 2px dashed #cbd5e1;
+    background-color: #fbfcfe;
+    border-radius: 24px;
+    padding: 3rem 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.75rem;
+    text-align: left;
+    transition: border-color 0.2s ease;
+  }
+
+  .placeholder-card:hover {
+    border-color: #94a3b8;
+  }
+
+  .placeholder-icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background-color: #f1f5f9;
+    color: #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+
+  .placeholder-text-wrap {
+    max-width: 540px;
+  }
+
+  .placeholder-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin: 0 0 0.4rem 0;
+  }
+
+  .placeholder-text {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: #64748b;
+    margin: 0;
+  }
+
+  /* Responsive Stacking */
+  @media (max-width: 860px) {
+    .workshops-page {
+      padding-top: 3rem;
+      padding-bottom: 4.5rem;
+    }
+
+    .speaker-card {
+      grid-template-columns: 1fr;
+    }
+
+    .speaker-photo-pane {
+      min-height: 280px;
+      height: 300px;
+    }
+
+    .speaker-content-pane {
+      padding: 2rem 1.75rem;
+    }
+
+    .speaker-name {
+      font-size: 1.55rem;
+    }
+
+    .placeholder-card {
+      flex-direction: column;
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+    }
+
+    .placeholder-text-wrap {
+      max-width: 100%;
+    }
+  }
+</style>

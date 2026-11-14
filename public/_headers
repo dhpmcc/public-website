@@ -16,9 +16,13 @@
 /favicon.svg
   Cache-Control: public, max-age=86400, stale-while-revalidate=604800
 
-# HTML pages - revalidate immediately
+# HTML pages - never cache so updates and reloads are immediately fresh
 /*.html
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0
 
 /
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: no-cache, no-store, must-revalidate
+  Pragma: no-cache
+  Expires: 0

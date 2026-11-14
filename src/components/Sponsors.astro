@@ -5,69 +5,84 @@ import { sponsors } from '../config/site';
 const mainSponsors = sponsors.main || [];
 ---
 
-<section id="sponsors" class="content-container sponsors-section">
-  <SectionHeading
-    number="03"
-    title="Sponsors"
-  />
+<section id="sponsors" class="sponsors-section">
+  <div class="content-container">
+    <SectionHeading
+      title="Sponsors"
+    />
 
-  <p class="sponsor-inquiry">
-    <a href="mailto:kabsek30@bergen.org?subject=DHPMCC%20Sponsorship%20Inquiry">Interested in Sponsoring?</a>
-  </p>
+    <p class="sponsor-inquiry">
+      <a href="mailto:kabsek30@bergen.org?subject=DHPMCC%20Sponsorship%20Inquiry">Interested in Sponsoring?</a>
+    </p>
 
-  <!-- Main Sponsors (Big section) -->
-  <div class="sponsors-main">
-    {mainSponsors.length > 0 ? (
-      <ul class="sponsor-list main-sponsor-list">
-        {mainSponsors.map((sponsor) => (
-          <li class="sponsor-item main-sponsor-item">
-            <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link main-sponsor-link" aria-label={`Visit ${sponsor.name}`}>
-              {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo main-sponsor-logo" />}
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="empty-notice">[Sponsor opportunities available]</p>
-    )}
-  </div>
+    <!-- Main Sponsors (Big section) -->
+    <div class="sponsors-main">
+      {mainSponsors.length > 0 ? (
+        <ul class="sponsor-list main-sponsor-list">
+          {mainSponsors.map((sponsor) => (
+            <li class="sponsor-item main-sponsor-item">
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link main-sponsor-link" aria-label={`Visit ${sponsor.name}`}>
+                {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo main-sponsor-logo" />}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty-notice">[Sponsor opportunities available]</p>
+      )}
+    </div>
 
-  <!-- Clear full-width divider spanning the entire length of the section -->
-  <hr class="sponsors-divider" />
+    <!-- Full-width divider separating main and in-kind sponsors -->
+    <hr class="sponsors-divider" />
 
-  <!-- In-Kind Sponsors (Small section) -->
-  <div class="sponsors-inkind">
-    {sponsors.inKind.length > 0 ? (
-      <ul class="sponsor-list inkind-list">
-        {sponsors.inKind.map((sponsor) => (
-          <li class="sponsor-item inkind-item">
-            <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link inkind-link" aria-label={`Visit ${sponsor.name}`}>
-              {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo inkind-logo" />}
-            </a>
-          </li>
-        ))}
-      </ul>
-    ) : (
-      <p class="empty-notice">[Sponsor opportunities available]</p>
-    )}
+    <!-- In-Kind Sponsors (Small section) -->
+    <div class="sponsors-inkind">
+      {sponsors.inKind.length > 0 ? (
+        <ul class="sponsor-list inkind-list">
+          {sponsors.inKind.map((sponsor) => (
+            <li class="sponsor-item inkind-item">
+              <a href={sponsor.url} target="_blank" rel="noopener noreferrer" class="sponsor-link inkind-link" aria-label={`Visit ${sponsor.name}`}>
+                {sponsor.logo && <img src={sponsor.logo} alt={`${sponsor.name} logo`} class="sponsor-logo inkind-logo" />}
+              </a>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="empty-notice">[Sponsor opportunities available]</p>
+      )}
+    </div>
   </div>
 </section>
 
 <style>
   .sponsors-section {
-    padding-top: 0.5rem;
-    padding-bottom: 1.25rem;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 6.5rem 0;
     text-align: center;
   }
 
+  /* Natural link styling moved closer to the Sponsors header */
   .sponsor-inquiry {
-    margin-bottom: 1.5rem;
-    font-size: 0.98rem;
+    margin-top: -2.25rem;
+    margin-bottom: 2.75rem;
+    font-size: 1.05rem;
   }
 
-  /* Big Section: Main / Featured Sponsors */
+  .sponsor-inquiry a {
+    color: var(--color-link);
+    text-decoration: underline;
+    font-weight: 600;
+    transition: color 0.15s ease;
+  }
+
+  .sponsor-inquiry a:hover {
+    color: var(--color-link-hover);
+  }
+
+  /* Big Section: Main Sponsors */
   .sponsors-main {
-    margin: 1.5rem 0;
+    margin: 2rem 0 3rem 0;
   }
 
   .sponsor-list {
@@ -94,7 +109,7 @@ const mainSponsors = sponsors.main || [];
 
   .main-sponsor-list {
     gap: clamp(2.5rem, 6vw, 4.5rem);
-    padding: 0.75rem 0;
+    padding: 1rem 0;
   }
 
   .main-sponsor-link:hover,
@@ -104,31 +119,32 @@ const mainSponsors = sponsors.main || [];
 
   .main-sponsor-logo {
     max-height: 120px;
-    max-width: 310px;
+    max-width: 320px;
     width: auto;
     height: auto;
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    transition: filter 0.2s ease;
   }
 
-  /* Clear full-width divider spanning the entire length of the section */
+  /* Clear full-width divider spanning the entire length */
   .sponsors-divider {
     border: 0;
     border-top: 1.5px solid #cbd5e1;
     width: 100%;
     max-width: 100%;
-    margin: 2.5rem 0 2rem 0;
+    margin: 3.5rem 0 2.5rem 0;
   }
 
-  /* Small Section: In-Kind Sponsors */
+  /* In-Kind Sponsors */
   .sponsors-inkind {
-    margin: 0.75rem 0 1.25rem 0;
+    margin: 1.5rem 0;
   }
 
   .inkind-list {
-    gap: clamp(1.5rem, 3.5vw, 2.75rem);
-    padding: 0.5rem 0;
+    gap: clamp(1.75rem, 4vw, 3rem);
+    padding: 0.75rem 0;
   }
 
   .inkind-item {
@@ -138,9 +154,10 @@ const mainSponsors = sponsors.main || [];
   }
 
   .inkind-link {
-    padding: 0.25rem 0.4rem;
-    opacity: 0.86;
-    border-radius: 4px;
+    padding: 0.35rem 0.65rem;
+    opacity: 0.88;
+    border-radius: 8px;
+    transition: opacity 0.2s ease, transform 0.2s ease;
   }
 
   .inkind-link:hover,
@@ -150,8 +167,8 @@ const mainSponsors = sponsors.main || [];
   }
 
   .inkind-logo {
-    max-height: 42px;
-    max-width: 130px;
+    max-height: 48px;
+    max-width: 140px;
     width: auto;
     height: auto;
     object-fit: contain;
@@ -160,49 +177,33 @@ const mainSponsors = sponsors.main || [];
   }
 
   .empty-notice {
-    color: #718096;
+    color: #64748b;
     font-size: 0.95rem;
     font-style: italic;
-    margin: 0.75rem 0;
+    margin: 1rem 0;
   }
 
-  @media (prefers-reduced-motion: reduce) {
-    .sponsor-link,
-    .main-sponsor-link,
-    .inkind-link {
-      transition: none;
-      transform: none;
+  @media (max-width: 768px) {
+    .sponsors-section {
+      padding: 4rem 0;
     }
 
-    .main-sponsor-link:hover,
-    .main-sponsor-link:focus-visible,
-    .inkind-link:hover,
-    .inkind-link:focus-visible {
-      transform: none;
-    }
-  }
-
-  @media (max-width: 640px) {
     .main-sponsor-list {
       gap: 2rem;
     }
 
     .main-sponsor-logo {
-      max-height: 75px;
+      max-height: 80px;
       max-width: 220px;
     }
 
-    .sponsors-divider {
-      margin: 2rem 0 1.5rem 0;
-    }
-
     .inkind-list {
-      gap: 1.25rem;
+      gap: 1.5rem;
     }
 
     .inkind-logo {
-      max-height: 26px;
-      max-width: 90px;
+      max-height: 32px;
+      max-width: 100px;
     }
   }
 </style>

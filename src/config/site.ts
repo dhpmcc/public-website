@@ -44,6 +44,7 @@ export const siteConfig: SiteConfig = {
     { label: "Home", href: "/" },
     { label: "Rules", href: "/rules" },
     { label: "FAQ", href: "/faq" },
+    { label: "Workshops & Seminars", href: "/workshops-and-seminars" },
   ],
 };
 
@@ -75,6 +76,99 @@ export const supportedLanguages = [
     compiler: "CPython 3.12",
     flags: "Standard interpreter",
     notes: "Standard sys.stdin.readline recommended for high-volume input parsing.",
+  },
+];
+
+export interface DivisionItem {
+  id: string;
+  name: string;
+  bullets: string[];
+}
+
+export const divisions: DivisionItem[] = [
+  {
+    id: "high-school",
+    name: "High School",
+    bullets: [
+      "Open to high school students, grades 9–12.",
+      "For experienced competitive programmers and first-timers alike.",
+      "Problems range from foundational logic to advanced algorithms comparable to USACO Silver and Gold levels.",
+      "Emphasizes dynamic programming, graph algorithms, greedy heuristics, combinatorics, and efficient data structures.",
+      "Separate division scoreboard with awards, medals, and prizes for top individual finishers.",
+      "Standard contest CPU time and memory limits strictly enforced across all supported programming languages.",
+    ],
+  },
+  {
+    id: "grades-6-8",
+    name: "Grades 6–8",
+    bullets: [
+      "Problems set for middle school competitors (grades 6–8).",
+      "A great first competition if you like math and puzzles.",
+      "Designed specifically for middle school students eager to explore algorithmic problem solving.",
+      "Focuses on mathematical reasoning, pattern recognition, simulation, conditional logic, and core loops.",
+      "Dedicated division ranking, certificates, and prizes recognizing outstanding young computing talent.",
+      "An encouraging and welcoming tournament setting to introduce students to in-person competitive coding.",
+    ],
+  },
+];
+
+export interface ScheduleEvent {
+  time: string;
+  event: string;
+  description: string;
+  link?: string;
+  linkLabel?: string;
+}
+
+export const contestSchedule: ScheduleEvent[] = [
+  {
+    time: "8:30am - 9:30am",
+    event: "Check in",
+    description: "Competitor arrival, credential verification, and workstation setup.",
+  },
+  {
+    time: "9:30am - 10:00am",
+    event: "Morning Announcements",
+    description: "Welcome remarks, competition guidelines, and judging platform briefing.",
+  },
+  {
+    time: "10:00am - 12:30pm",
+    event: "Contest",
+    description: "Official 2.5-hour individual competitive programming tournament.",
+  },
+  {
+    time: "12:30pm - 2:00pm",
+    event: "Lunch & CS Professionals Seminars",
+    description: "Lunch provided followed by seminars and Q&A with tech industry and academic speakers.",
+    link: "/workshops-and-seminars",
+    linkLabel: "DHPMCC 2027 Workshops and Seminars",
+  },
+  {
+    time: "2:00pm - 3:00pm",
+    event: "Afternoon Announcements & Prizes",
+    description: "Problem walkthroughs, division winners announcement, and awards ceremony.",
+  },
+];
+
+export interface Speaker {
+  name: string;
+  role: string;
+  lectureTopic: string;
+  photo: string;
+  bio: string;
+  website?: string;
+  affiliation?: string;
+}
+
+export const seminarSpeakers: Speaker[] = [
+  {
+    name: "Christian Yongwhan Lim",
+    role: "ICPC Coach for Columbia University",
+    lectureTopic: "Competitive Programing and the ICPC",
+    photo: "/images/speakers/christian_lim.jpg",
+    bio: "Chief Architect at Probook and ICPC Coach for Columbia University, Christian mentors competitive programmers and builds robust AI systems with rigorous algorithmic discipline.",
+    website: "https://www.yongwhan.io/",
+    affiliation: "Columbia University",
   },
 ];
 

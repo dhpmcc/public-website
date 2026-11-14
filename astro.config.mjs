@@ -7,12 +7,7 @@ export default defineConfig({
   output: 'static',
   build: {
     format: 'file',
-    inlineStylesheets: 'auto',
+    inlineStylesheets: 'always',
   },
   integrations: [sitemap()],
-  prefetch: {
-    prefetchAll: true,
-    defaultStrategy: 'hover',
-  },
 });
-

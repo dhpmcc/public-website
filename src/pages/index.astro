@@ -2,52 +2,56 @@
 import Layout from '../layouts/Layout.astro';
 import Masthead from '../components/Masthead.astro';
 import About from '../components/About.astro';
-import Languages from '../components/Languages.astro';
+import Format from '../components/Format.astro';
+import Divisions from '../components/Divisions.astro';
+import Schedule from '../components/Schedule.astro';
 import Sponsors from '../components/Sponsors.astro';
-import { siteConfig } from '../config/site';
 ---
 
 <Layout>
   <Masthead />
   
+  <!-- Classic Registration Callout with Signature Red Accent Line -->
   <div class="content-container">
-    <div class="section home-summary">
+    <div class="home-summary">
       <blockquote>
-        Join us for the first annual DHPMCC! Registration is now open ($40 fee): <a href="https://forms.gle/okFUSDLCjxJ45rH19">Click Me!</a>
+        Join us for the first annual DHPMCC! Registration is now open ($40 fee): <a href="https://forms.gle/okFUSDLCjxJ45rH19" target="_blank" rel="noopener noreferrer">Click Me!</a>
       </blockquote>
     </div>
   </div>
 
-  <hr />
   <About />
-  <hr />
-  <Languages />
-  <hr />
+  <Format />
+  <Divisions />
+  <Schedule />
   <Sponsors />
 </Layout>
 
 <style>
   .home-summary {
-    padding-top: 0.85rem;
-    padding-bottom: 0.15rem;
+    padding-top: 2rem;
+    padding-bottom: 1rem;
   }
 
   .home-summary blockquote {
-    margin: 0.5rem 0 0.5rem 0;
-    padding: 0.25rem 0 0.25rem 1.25rem;
-    border-left: 4px solid var(--color-link);
-    font-size: 1.02rem;
+    margin: 0;
+    padding: 0.35rem 0 0.35rem 1.25rem;
+    border-left: 4px solid #8b0000;
+    border-left: 4px solid var(--color-link, #8b0000);
+    font-size: 1.05rem;
     line-height: 1.6;
     color: #374151;
   }
 
   .home-summary blockquote a {
-    color: var(--color-link);
+    color: #8b0000;
+    color: var(--color-link, #8b0000);
     text-decoration: underline;
     font-weight: 600;
   }
 
   .home-summary blockquote a:hover {
-    color: var(--color-link-hover);
+    color: #500000;
+    color: var(--color-link-hover, #500000);
   }
 </style>

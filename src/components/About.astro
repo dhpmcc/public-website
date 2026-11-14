@@ -2,43 +2,111 @@
 import SectionHeading from './SectionHeading.astro';
 ---
 
-<section id="about" class="content-container about-section">
-  <SectionHeading
-    number="01"
-    title="About the Competition"
-  />
+<section id="about" class="about-section">
+  <div class="content-container">
+    <div class="about-frame">
+      <SectionHeading
+        title="About the Competition"
+      />
 
-  <div class="about-body">
-    <p>
-      The <strong>Daniel H. Plotnick Memorial Computing Competition (DHPMCC)</strong> is an in-person competitive programming tournament hosted at <strong>Bergen County Academies</strong> in Hackensack, New Jersey.
-    </p>
-    <p>
-      Competitors work individually through a series of original algorithmic problems, developing and implementing solutions within fixed time and memory constraints. The competition emphasizes problem solving, algorithmic reasoning, and efficient implementation.
-    </p>
-    <p>
-      DHPMCC is held in memory of Daniel H. Plotnick, honoring his contributions to mathematics, computing, and the students he inspired.
-    </p>
+      <div class="about-body">
+        <p class="about-lead">
+          The <strong>Daniel H. Plotnick Memorial Computing Competition (DHPMCC)</strong> is an in-person competitive programming tournament hosted at <strong>Bergen County Academies</strong> in Hackensack, New Jersey.
+        </p>
+        <p class="about-text">
+          Competitors work individually through a series of original algorithmic problems, developing and implementing solutions within fixed time and memory constraints. The competition emphasizes problem solving, algorithmic reasoning, and efficient implementation.
+        </p>
+
+        <div class="memorial-callout">
+          <p class="memorial-text">
+            DHPMCC is held in loving memory of <strong>Daniel H. Plotnick</strong>, a beloved educator and coach of the Bergen County Academies Math Team. Renowned for his extraordinary kindness, gentle encouragement, and profound dedication to education, Mr. Plotnick inspired generations of students to discover the beauty of mathematics and computing. He cared deeply for each learner, creating a welcoming community where curiosity was celebrated, tough problems were met with optimism, and every student was empowered to grow. This competition honors his enduring legacy, carrying forward the passion for learning, problem-solving, and camaraderie that he shared so generously.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <style>
   .about-section {
-    padding-top: 0.5rem;
-    padding-bottom: 0.75rem;
+    width: 100%;
+    background-color: #ffffff;
+    padding: 6rem 0;
+  }
+
+  /* Framed panel matching modern hackathons */
+  .about-frame {
+    max-width: 960px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 20px;
+    padding: 3.5rem 3.5rem 3.25rem 3.5rem;
+    box-shadow: 0 4px 25px -2px rgba(0, 0, 0, 0.05);
     text-align: center;
   }
 
   .about-body {
-    max-width: 1080px;
+    max-width: 800px;
     margin: 0 auto;
-    text-align: center;
   }
 
-  .about-body p {
+  .about-lead {
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: #1e293b;
+    margin: 0 0 1.25rem 0;
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #475569;
+    margin: 0 0 1.5rem 0;
+  }
+
+  /* Dignified memorial tribute callout */
+  .memorial-callout {
+    border-left: 3px solid #8b0000;
+    background-color: #fdf8f8;
+    padding: 1.5rem 1.85rem;
+    border-radius: 0 14px 14px 0;
+    margin-top: 2.25rem;
+    text-align: left;
+  }
+
+  .memorial-text {
     font-size: 1.02rem;
-    line-height: 1.68;
-    color: #374151;
-    margin: 0.95rem auto;
-    text-align: center;
+    line-height: 1.75;
+    color: #475569;
+    margin: 0;
+  }
+
+  .memorial-text strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  @media (max-width: 768px) {
+    .about-section {
+      padding: 4rem 0;
+    }
+
+    .about-frame {
+      padding: 2.25rem 1.5rem;
+      border-radius: 16px;
+    }
+
+    .about-lead {
+      font-size: 1.05rem;
+    }
+
+    .about-text {
+      font-size: 0.98rem;
+    }
+
+    .memorial-callout {
+      padding: 1rem 1.25rem;
+    }
   }
 </style>

@@ -2,7 +2,7 @@
 import { siteConfig } from '../config/site';
 ---
 
-<!-- Simple Header (No background images or carousel dots) -->
+<!-- Simple Header Banner -->
 <section id="top" class="hero-section">
   <div class="hero-banner" aria-label="Competition Banner">
     <div class="slide-content">
@@ -13,127 +13,11 @@ import { siteConfig } from '../config/site';
   </div>
 </section>
 
-{/*
-<section id="top" class="hero-section">
-  <!-- Full-Width Scrolling Photo Gallery (JHMMC Style with Direct Text Overlay) -->
-  <div class="gallery-container" aria-label="Competition Banner">
-    <div class="gallery-track">
-      <div class="gallery-slide active">
-        <div class="slide-overlay">
-          <div class="slide-content">
-            <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
-            <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
-            <p class="slide-tagline">March 13, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
-          </div>
-        </div>
-      </div>
-      <div class="gallery-slide">
-        <div class="slide-overlay">
-          <div class="slide-content">
-            <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
-            <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
-            <p class="slide-tagline">March 13, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
-          </div>
-        </div>
-      </div>
-      <div class="gallery-slide">
-        <div class="slide-overlay">
-          <div class="slide-content">
-            <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
-            <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
-            <p class="slide-tagline">March 13, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Carousel dot indicators (JHMMC style) -->
-    <div class="gallery-dots" role="tablist" aria-label="Gallery slide controls">
-      <button class="dot active" type="button" aria-label="Slide 1" data-index="0"></button>
-      <button class="dot" type="button" aria-label="Slide 2" data-index="1"></button>
-      <button class="dot" type="button" aria-label="Slide 3" data-index="2"></button>
-    </div>
-  </div>
-</section>
-*/}
-
-<script>
-  const gallery = document.querySelector('.gallery-container');
-  const slides = document.querySelectorAll('.gallery-slide');
-  const dots = document.querySelectorAll('.gallery-dots .dot');
-  let currentIndex = 0;
-  let intervalId: ReturnType<typeof setInterval> | null = null;
-  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  function showSlide(index: number) {
-    if (!slides.length) return;
-    slides.forEach((slide, i) => {
-      slide.classList.toggle('active', i === index);
-    });
-    dots.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-    currentIndex = index;
-  }
-
-  function nextSlide() {
-    const next = (currentIndex + 1) % slides.length;
-    showSlide(next);
-  }
-
-  dots.forEach((dot) => {
-    dot.addEventListener('click', () => {
-      const idx = Number(dot.getAttribute('data-index'));
-      showSlide(idx);
-      resetAutoPlay();
-    });
-  });
-
-  function startAutoPlay() {
-    if (prefersReducedMotion || slides.length <= 1) return;
-    if (intervalId === null) {
-      intervalId = setInterval(nextSlide, 5000);
-    }
-  }
-
-  function stopAutoPlay() {
-    if (intervalId !== null) {
-      clearInterval(intervalId);
-      intervalId = null;
-    }
-  }
-
-  function resetAutoPlay() {
-    stopAutoPlay();
-    startAutoPlay();
-  }
-
-  // Pause when hovered or focused
-  if (gallery) {
-    gallery.addEventListener('mouseenter', stopAutoPlay);
-    gallery.addEventListener('mouseleave', startAutoPlay);
-    gallery.addEventListener('focusin', stopAutoPlay);
-    gallery.addEventListener('focusout', startAutoPlay);
-  }
-
-  // Pause when browser tab is hidden to conserve CPU/battery
-  document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      stopAutoPlay();
-    } else {
-      startAutoPlay();
-    }
-  });
-
-  startAutoPlay();
-</script>
-
 <style>
   .hero-section {
     margin-bottom: 0;
   }
 
-  /* Simple Header Banner Styling */
   .hero-banner {
     position: relative;
     width: 100%;
@@ -142,52 +26,6 @@ import { siteConfig } from '../config/site';
     background: radial-gradient(circle at center, #2d3748 0%, #11151a 100%);
     display: flex;
     align-items: center;
-  }
-
-  /* Full-width JHMMC Banner Styling */
-  .gallery-container {
-    position: relative;
-    width: 100%;
-    height: 390px;
-    background-color: #111418;
-    overflow: hidden;
-  }
-
-  .gallery-track {
-    width: 100%;
-    height: 100%;
-    position: relative;
-  }
-
-  .gallery-slide {
-    position: absolute;
-    inset: 0;
-    opacity: 0;
-    transition: opacity 0.7s ease-in-out;
-    background-color: #1a1e24;
-    background-image: var(--bg-image, none), radial-gradient(circle at center, #2d3748 0%, #11151a 100%);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-  }
-
-  .gallery-slide.active {
-    opacity: 1;
-    z-index: 1;
-  }
-
-  .slide-overlay {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0.75) 0%,
-      rgba(0, 0, 0, 0.58) 50%,
-      rgba(0, 0, 0, 0.42) 100%
-    );
   }
 
   .slide-content {
@@ -225,35 +63,7 @@ import { siteConfig } from '../config/site';
     max-width: 850px;
   }
 
-  /* Dot controls at the bottom of the photo */
-  .gallery-dots {
-    position: absolute;
-    bottom: 1.15rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    gap: 0.6rem;
-    z-index: 2;
-  }
-
-  .dot {
-    width: 9px;
-    height: 9px;
-    border-radius: 50%;
-    border: none;
-    background-color: rgba(255, 255, 255, 0.35);
-    cursor: pointer;
-    padding: 0;
-    transition: background-color 0.2s ease, transform 0.2s ease;
-  }
-
-  .dot.active {
-    background-color: var(--color-link); /* Crimson red matching site links and accents */
-    transform: scale(1.2);
-  }
-
   @media (max-width: 720px) {
-    .gallery-container,
     .hero-banner {
       min-height: 320px;
       height: auto;
@@ -269,7 +79,6 @@ import { siteConfig } from '../config/site';
   }
 
   @media (max-width: 540px) {
-    .gallery-container,
     .hero-banner {
       min-height: 290px;
       height: auto;
@@ -293,10 +102,6 @@ import { siteConfig } from '../config/site';
     .slide-tagline {
       font-size: 0.95rem;
       line-height: 1.4;
-    }
-
-    .gallery-dots {
-      bottom: 0.75rem;
     }
   }
 </style>

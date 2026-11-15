@@ -36,7 +36,7 @@ export const siteConfig: SiteConfig = {
   format: "In-person",
   competitionType: "Individual algorithmic contest",
   status: "UPCOMING",
-  registrationUrl: "[REGISTRATION_URL]",
+  registrationUrl: "https://forms.gle/okFUSDLCjxJ45rH19",
   contactEmail: "[CONTACT_EMAIL]",
   rulesUrl: "/rules",
   siteUrl: "https://dhpmcc.org",

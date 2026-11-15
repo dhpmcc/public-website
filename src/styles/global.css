@@ -251,27 +251,36 @@ code, pre {
   margin: 0;
 }
 
-/* Divisions & Schedule Critical Dimensions */
+/* Divisions, Schedule & CTA Critical Dimensions */
 .divisions-section,
 .schedule-section,
+.bottom-cta-section,
 .sponsors-section {
   width: 100%;
-  padding: 6.5rem 0;
   box-sizing: border-box;
 }
 
 .divisions-section {
   background-color: #ffffff;
+  padding: 6.5rem 0;
 }
 
 .schedule-section {
   background-color: #f8fafc;
   border-top: 1px solid #e2e8f0;
   border-bottom: 1px solid #e2e8f0;
+  padding: 6.5rem 0;
+}
+
+.bottom-cta-section {
+  background-color: #f8fafc;
+  border-top: 1px solid #e2e8f0;
+  padding: 5rem 0;
 }
 
 .sponsors-section {
   background-color: #ffffff;
+  padding: 6.5rem 0;
 }
 
 .divisions-content {

@@ -9,6 +9,12 @@ import { siteConfig } from '../config/site';
       <p class="slide-badge">DHPMCC // {siteConfig.year}</p>
       <h1 class="slide-title">Daniel H. Plotnick Memorial Computing Competition</h1>
       <p class="slide-tagline">March 13, 2027 at the Bergen County Academies in Hackensack, New Jersey</p>
+
+      <div class="hero-cta-wrap">
+        <a href={siteConfig.registrationUrl} target="_blank" rel="noopener noreferrer" class="hero-cta-btn">
+          Register for DHPMCC
+        </a>
+      </div>
     </div>
   </div>
 </section>
@@ -61,6 +67,31 @@ import { siteConfig } from '../config/site';
     margin: 0;
     line-height: 1.5;
     max-width: 850px;
+  }
+
+  /* Hero CTA */
+  .hero-cta-wrap {
+    margin-top: 1.75rem;
+  }
+
+  .hero-cta-btn {
+    display: inline-block;
+    background-color: var(--color-link, #8b0000);
+    color: #ffffff !important;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    padding: 0.65rem 1.4rem;
+    border-radius: 4px;
+    border: 1px solid #700000;
+    text-decoration: none !important;
+    box-shadow: none;
+    transition: background-color 0.15s ease, border-color 0.15s ease;
+  }
+
+  .hero-cta-btn:hover {
+    background-color: #700000;
+    border-color: #550000;
   }
 
   @media (max-width: 720px) {

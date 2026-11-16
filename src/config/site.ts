@@ -37,13 +37,13 @@ export const siteConfig: SiteConfig = {
   competitionType: "Individual algorithmic contest",
   status: "UPCOMING",
   registrationUrl: "https://forms.gle/okFUSDLCjxJ45rH19",
-  contactEmail: "[CONTACT_EMAIL]",
+  contactEmail: "kabsek30@bergen.org",
   rulesUrl: "/rules",
   siteUrl: "https://dhpmcc.org",
   navItems: [
     { label: "Home", href: "/" },
-    { label: "Rules", href: "/rules" },
     { label: "FAQ", href: "/faq" },
+    { label: "Our Team", href: "/team" },
     { label: "Workshops & Seminars", href: "/workshops-and-seminars" },
   ],
 };
@@ -164,7 +164,7 @@ export const seminarSpeakers: Speaker[] = [
   {
     name: "Christian Yongwhan Lim",
     role: "ICPC Coach for Columbia University",
-    lectureTopic: "Competitive Programing and the ICPC",
+    lectureTopic: "Competitive Programming and the ICPC",
     photo: "/images/speakers/christian_lim.jpg",
     bio: "Chief Architect at Probook and ICPC Coach for Columbia University, Christian mentors competitive programmers and builds robust AI systems with rigorous algorithmic discipline.",
     website: "https://www.yongwhan.io/",
@@ -343,3 +343,28 @@ export const sponsors: SponsorsConfig = {
   main: [bca],
   inKind: [TENT_jane_street, art_of_problem_solving, TENT_columbia_university, eleven_labs, TENT_jetbrains, TENT_mongodb, non_trivial, rise_research, TENT_major_league_hacking, TENT_interview_cake, pcbway, mlh_pure_buttons],
 };
+
+export interface TeamMember {
+  name: string;
+  role?: string;
+  email: string;
+}
+
+export const competitionLeadership: TeamMember[] = [
+  {
+    name: "Kabir Sekhon",
+    role: "Tournament Director & Founder",
+    email: "kabsek30@bergen.org",
+  },
+];
+
+export const teacherAdvisors: TeamMember[] = [
+  {
+    name: "Mr. Richard Wertz",
+    email: "ricwer@bergen.org",
+  },
+  {
+    name: "Dr. Michael Abramson",
+    email: "micabra@bergen.org",
+  },
+];

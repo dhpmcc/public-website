@@ -1,0 +1,245 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { competitionLeadership, teacherAdvisors, siteConfig } from '../config/site';
+---
+
+<Layout title={`Our Team | DHPMCC ${siteConfig.year}`} description="Meet the competition directors, organizers, and Bergen County Academies faculty advisors behind DHPMCC 2027.">
+  <div class="content-container team-main">
+    <header class="team-intro">
+      <p class="team-eyebrow">DHPMCC // {siteConfig.year}</p>
+      <h1 class="team-title">Meet the Team</h1>
+      <p class="team-subtitle">
+        The student directors, organizers, and Bergen County Academies faculty advisors behind the Daniel H. Plotnick Memorial Computing Competition.
+      </p>
+    </header>
+
+    <!-- Competition Leadership -->
+    <section class="team-section" aria-labelledby="directors-title">
+      <h2 class="team-section-heading" id="directors-title">Competition Leadership</h2>
+      <div class="team-directors-row">
+        {competitionLeadership.map((member) => (
+          <article class="team-director">
+            {member.role && <p class="team-role-eyebrow">{member.role}</p>}
+            <h3 class="team-name">{member.name}</h3>
+            <p class="team-contact">
+              <a href={`mailto:${member.email}`} class="team-email-link">
+                <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span>{member.email}</span>
+              </a>
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Teacher Advisors -->
+    <section class="team-section" aria-labelledby="advisors-title">
+      <h2 class="team-section-heading" id="advisors-title">Teacher Advisors</h2>
+      <div class="team-advisors-grid">
+        {teacherAdvisors.map((advisor) => (
+          <article class="team-advisor">
+            <h3 class="team-name">{advisor.name}</h3>
+            <p class="team-contact">
+              <a href={`mailto:${advisor.email}`} class="team-email-link">
+                <svg class="email-icon" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                  <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                </svg>
+                <span>{advisor.email}</span>
+              </a>
+            </p>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Special Thanks -->
+    <section class="team-thanks" aria-labelledby="thanks-title">
+      <h2 class="thanks-title" id="thanks-title">A special thanks.</h2>
+      <p class="thanks-text">To the teachers, mentors, volunteers, and BCA faculty who help make DHPMCC {siteConfig.year} possible.</p>
+    </section>
+  </div>
+</Layout>
+
+<style>
+  .team-main {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
+    max-width: 980px;
+    margin: 0 auto;
+  }
+
+  /* Header */
+  .team-intro {
+    max-width: 48rem;
+    margin-bottom: 3.5rem;
+  }
+
+  .team-eyebrow {
+    margin: 0 0 0.8rem 0;
+    color: var(--color-link, #8b0000);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .team-title {
+    margin: 0;
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #0f172a;
+  }
+
+  .team-subtitle {
+    margin: 1.15rem 0 0 0;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  /* Sections */
+  .team-section {
+    margin-bottom: 3.5rem;
+  }
+
+  .team-section-heading {
+    margin: 0 0 1.25rem 0;
+    font-size: 1.35rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    color: #0f172a;
+  }
+
+  /* Competition Leadership (modeled strictly around hackPHS) */
+  .team-directors-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .team-director {
+    padding: 1.5rem 0 2rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .team-role-eyebrow {
+    margin: 0 0 0.5rem 0;
+    color: var(--color-link, #8b0000);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .team-name {
+    margin: 0;
+    font-size: clamp(1.4rem, 2.8vw, 2.1rem);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    color: #0f172a;
+    line-height: 1.25;
+  }
+
+  .team-contact {
+    margin: 0.65rem 0 0 0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .team-email-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    color: #64748b;
+    text-decoration: underline;
+    text-underline-offset: 0.25em;
+    font-weight: 500;
+    transition: color 0.15s ease;
+  }
+
+  .email-icon {
+    flex-shrink: 0;
+    color: #94a3b8;
+    transition: color 0.15s ease;
+  }
+
+  .team-email-link:hover {
+    color: var(--color-link, #8b0000);
+  }
+
+  .team-email-link:hover .email-icon {
+    color: var(--color-link, #8b0000);
+  }
+
+  /* Teacher Advisors Grid */
+  .team-advisors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.5rem;
+  }
+
+  .team-advisor {
+    min-width: 0;
+    padding: 1.5rem 0 2rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .team-advisor .team-name {
+    font-size: clamp(1.25rem, 2.2vw, 1.7rem);
+    font-weight: 600;
+  }
+
+  /* Thanks Section */
+  .team-thanks {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e2e8f0;
+  }
+
+  .thanks-title {
+    margin: 0;
+    font-size: 1.65rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.03em;
+  }
+
+  .thanks-text {
+    margin: 0.75rem 0 0 0;
+    color: #64748b;
+    line-height: 1.7;
+    font-size: 1.05rem;
+  }
+
+  @media (max-width: 640px) {
+    .team-main {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
+    }
+
+    .team-intro {
+      margin-bottom: 2.5rem;
+    }
+
+    .team-advisors-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .team-director,
+    .team-advisor {
+      padding: 1.25rem 0 1.5rem;
+    }
+
+    .team-thanks {
+      margin-top: 3rem;
+      padding-top: 1.5rem;
+    }
+  }
+</style>

@@ -3,12 +3,12 @@ import Layout from '../layouts/Layout.astro';
 import { seminarSpeakers, siteConfig } from '../config/site';
 ---
 
-<Layout title="Workshops & Seminars // DHPMCC 2027">
-  <div class="content-container workshops-page">
-    <header class="page-header">
-      <p class="page-eyebrow">DHPMCC {siteConfig.year}</p>
-      <h1 class="page-title">Workshops &amp; Seminars</h1>
-      <p class="page-subtitle">
+<Layout title={`Workshops & Seminars | DHPMCC ${siteConfig.year}`} description="Distinguished guest speakers and technical seminars taking place during the DHPMCC competition lunch window.">
+  <div class="content-container workshops-main">
+    <header class="workshops-intro">
+      <p class="workshops-eyebrow">DHPMCC // {siteConfig.year}</p>
+      <h1 class="workshops-title">Workshops &amp; Seminars</h1>
+      <p class="workshops-subtitle">
         Distinguished guest speakers and technical seminars taking place during the competition lunch window (12:30 PM – 2:00 PM).
       </p>
     </header>
@@ -28,7 +28,7 @@ import { seminarSpeakers, siteConfig } from '../config/site';
             </div>
 
             <div class="speaker-content-pane">
-              <div class="speaker-title-block">
+              <div class="speaker-header-block">
                 <h2 class="speaker-name">{speaker.name}</h2>
                 <p class="speaker-role">{speaker.role}</p>
               </div>
@@ -46,7 +46,7 @@ import { seminarSpeakers, siteConfig } from '../config/site';
         <!-- Upcoming Speaker Slot (Wide Horizontal Banner) -->
         <div class="placeholder-card">
           <div class="placeholder-icon" aria-hidden="true">
-            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
               <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
               <line x1="12" y1="19" x2="12" y2="22"></line>
@@ -65,45 +65,45 @@ import { seminarSpeakers, siteConfig } from '../config/site';
 </Layout>
 
 <style>
-  .workshops-page {
-    padding-top: 4.5rem;
-    padding-bottom: 6.5rem;
+  .workshops-main {
+    padding-top: 5rem;
+    padding-bottom: 6rem;
     max-width: 1040px;
     margin: 0 auto;
   }
 
-  /* Header Section */
-  .page-header {
+  /* Header */
+  .workshops-intro {
+    max-width: 48rem;
     margin-bottom: 3.5rem;
   }
 
-  .page-eyebrow {
-    font-size: 0.85rem;
+  .workshops-eyebrow {
+    margin: 0 0 0.8rem 0;
+    color: var(--color-link, #8b0000);
+    font-size: 0.78rem;
     font-weight: 700;
-    text-transform: uppercase;
     letter-spacing: 0.12em;
-    color: #8b0000;
-    margin: 0 0 0.5rem 0;
+    text-transform: uppercase;
   }
 
-  .page-title {
-    font-size: clamp(2.2rem, 4vw, 2.85rem);
-    font-weight: 800;
-    color: #0f172a;
-    letter-spacing: -0.025em;
-    margin: 0 0 1rem 0;
-    line-height: 1.15;
-  }
-
-  .page-subtitle {
-    font-size: 1.15rem;
-    color: #475569;
-    max-width: 760px;
-    line-height: 1.65;
+  .workshops-title {
     margin: 0;
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    color: #0f172a;
   }
 
-  /* 1 Speaker Per Row */
+  .workshops-subtitle {
+    margin: 1.15rem 0 0 0;
+    font-size: 1.12rem;
+    line-height: 1.7;
+    color: #475569;
+  }
+
+  /* Speakers List - 1 Speaker Per Row (Wide Landscape Cards) */
   .speakers-section {
     width: 100%;
   }
@@ -111,7 +111,7 @@ import { seminarSpeakers, siteConfig } from '../config/site';
   .speakers-list {
     display: flex;
     flex-direction: column;
-    gap: 2.75rem;
+    gap: 2.5rem;
     width: 100%;
   }
 
@@ -119,9 +119,9 @@ import { seminarSpeakers, siteConfig } from '../config/site';
   .speaker-card {
     background-color: #ffffff;
     border: 1px solid #e2e8f0;
-    border-radius: 24px;
+    border-radius: 16px;
     overflow: hidden;
-    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
     display: grid;
     grid-template-columns: 340px 1fr;
     transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
@@ -129,17 +129,17 @@ import { seminarSpeakers, siteConfig } from '../config/site';
 
   .speaker-card:hover {
     transform: translateY(-3px);
-    box-shadow: 0 14px 34px -4px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 12px 30px -4px rgba(0, 0, 0, 0.08);
     border-color: #cbd5e1;
   }
 
-  /* Prominent Photo Pane (Takes up the whole side of the box) */
+  /* Prominent Face Photo Pane */
   .speaker-photo-pane {
     position: relative;
     width: 100%;
     height: 100%;
     min-height: 340px;
-    background-color: #0f172a;
+    background-color: #eaebed;
     overflow: hidden;
   }
 
@@ -148,134 +148,114 @@ import { seminarSpeakers, siteConfig } from '../config/site';
     height: 100%;
     object-fit: cover;
     object-position: center 20%;
+    transform: scale(1.42);
+    transform-origin: 50% 20%;
     display: block;
-    transition: transform 0.3s ease;
   }
 
-  .speaker-card:hover .speaker-photo {
-    transform: scale(1.02);
-  }
-
-  /* Right Side Content Pane */
+  /* Speaker Content Pane */
   .speaker-content-pane {
-    padding: 2.75rem 3rem;
+    padding: 2.75rem 2.85rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: #ffffff;
   }
 
-  .speaker-title-block {
-    margin-bottom: 1.5rem;
+  .speaker-header-block {
+    margin-bottom: 1.25rem;
   }
 
   .speaker-name {
-    font-size: 1.85rem;
-    font-weight: 800;
+    font-size: clamp(1.6rem, 2.8vw, 2.1rem);
+    font-weight: 700;
     color: #0f172a;
+    letter-spacing: -0.025em;
+    margin: 0 0 0.35rem 0;
     line-height: 1.2;
-    margin: 0 0 0.4rem 0;
-    letter-spacing: -0.015em;
   }
 
   .speaker-role {
-    font-size: 1.05rem;
+    font-size: 1.02rem;
     font-weight: 600;
-    color: #8b0000;
-    line-height: 1.4;
+    color: #64748b;
     margin: 0;
   }
 
-  /* Lecture Topic Box */
+  /* Topic Box */
   .topic-box {
     background-color: #f8fafc;
     border: 1px solid #e2e8f0;
-    border-radius: 14px;
-    padding: 1.15rem 1.4rem;
-    margin-bottom: 1.5rem;
+    border-left: 4px solid var(--color-link, #8b0000);
+    border-radius: 6px;
+    padding: 0.95rem 1.35rem;
+    margin-bottom: 1.35rem;
   }
 
   .topic-label {
     display: block;
-    font-size: 0.75rem;
+    font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.08em;
-    color: #64748b;
-    margin-bottom: 0.35rem;
+    color: var(--color-link, #8b0000);
+    margin-bottom: 0.3rem;
   }
 
   .topic-title {
     font-size: 1.15rem;
     font-weight: 700;
     color: #0f172a;
-    line-height: 1.4;
     margin: 0;
+    line-height: 1.35;
   }
 
-  /* Quick Bio */
   .speaker-bio {
     font-size: 1.02rem;
-    line-height: 1.7;
+    line-height: 1.75;
     color: #475569;
     margin: 0;
   }
 
-  /* Placeholder / Coming Soon Wide Card */
+  /* Upcoming Speaker Slot (Wide Horizontal Banner) */
   .placeholder-card {
+    background-color: #fafbfd;
     border: 2px dashed #cbd5e1;
-    background-color: #fbfcfe;
-    border-radius: 24px;
-    padding: 3rem 2.5rem;
+    border-radius: 16px;
+    padding: 2.5rem 2.5rem;
     display: flex;
     align-items: center;
-    justify-content: center;
     gap: 1.75rem;
-    text-align: left;
-    transition: border-color 0.2s ease;
-  }
-
-  .placeholder-card:hover {
-    border-color: #94a3b8;
+    color: #64748b;
   }
 
   .placeholder-icon {
-    width: 64px;
-    height: 64px;
+    width: 56px;
+    height: 56px;
     border-radius: 50%;
-    background-color: #f1f5f9;
-    color: #64748b;
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-  }
-
-  .placeholder-text-wrap {
-    max-width: 540px;
+    color: #94a3b8;
   }
 
   .placeholder-title {
-    font-size: 1.35rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    color: #1e293b;
-    margin: 0 0 0.4rem 0;
+    color: #334155;
+    margin: 0 0 0.35rem 0;
   }
 
   .placeholder-text {
-    font-size: 0.98rem;
-    line-height: 1.6;
+    font-size: 1rem;
     color: #64748b;
     margin: 0;
+    line-height: 1.6;
   }
 
-  /* Responsive Stacking */
   @media (max-width: 860px) {
-    .workshops-page {
-      padding-top: 3rem;
-      padding-bottom: 4.5rem;
-    }
-
     .speaker-card {
       grid-template-columns: 1fr;
     }
@@ -289,18 +269,34 @@ import { seminarSpeakers, siteConfig } from '../config/site';
       padding: 2rem 1.75rem;
     }
 
-    .speaker-name {
-      font-size: 1.55rem;
-    }
-
     .placeholder-card {
       flex-direction: column;
       text-align: center;
-      padding: 2.5rem 1.5rem;
+      gap: 1.25rem;
+      padding: 2rem 1.5rem;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .workshops-main {
+      padding-top: 3rem;
+      padding-bottom: 4rem;
     }
 
-    .placeholder-text-wrap {
-      max-width: 100%;
+    .workshops-intro {
+      margin-bottom: 2.25rem;
+    }
+
+    .speaker-content-pane {
+      padding: 1.65rem 1.35rem;
+    }
+
+    .speaker-name {
+      font-size: 1.5rem;
+    }
+
+    .topic-title {
+      font-size: 1.05rem;
     }
   }
 </style>

@@ -28,22 +28,14 @@ import { siteConfig } from '../config/site';
   <Schedule />
   <Sponsors />
 
-  <!-- Prominent Closing Call-to-Action Section -->
+  <!-- Closing Call-to-Action Bar -->
   <section class="bottom-cta-section">
     <div class="content-container">
-      <div class="bottom-cta-card">
-        <div class="bottom-cta-info">
-          <p class="bottom-cta-eyebrow">DHPMCC // {siteConfig.year}</p>
-          <h2 class="bottom-cta-title">Ready to Compete?</h2>
-          <p class="bottom-cta-desc">
-            Join students across the region for an exciting day of algorithmic problem solving, CS seminars, and awards at Bergen County Academies.
-          </p>
-        </div>
-        <div class="bottom-cta-action">
-          <a href={siteConfig.registrationUrl} target="_blank" rel="noopener noreferrer" class="bottom-cta-btn">
-            Register for DHPMCC
-          </a>
-        </div>
+      <div class="bottom-cta-wrap">
+        <h2 class="bottom-cta-title">Ready to Compete?</h2>
+        <a href={siteConfig.registrationUrl} target="_blank" rel="noopener noreferrer" class="bottom-cta-btn">
+          Register for DHPMCC
+        </a>
       </div>
     </div>
   </section>
@@ -81,63 +73,30 @@ import { siteConfig } from '../config/site';
     text-decoration: underline;
   }
 
-  /* Bottom Closing CTA Section */
+  /* Bottom Closing CTA Bar */
   .bottom-cta-section {
     width: 100%;
-    background-color: #f8fafc;
-    border-top: 1px solid #e2e8f0;
-    padding: 5rem 0;
-  }
-
-  .bottom-cta-card {
-    max-width: 1080px;
-    margin: 0 auto;
     background-color: #ffffff;
-    border: 1px solid #e2e8f0;
-    border-top: 4px solid var(--color-link, #8b0000);
-    border-radius: 16px;
-    padding: 3rem 3.5rem;
-    box-shadow: 0 4px 24px -2px rgba(0, 0, 0, 0.05);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 2.5rem;
+    padding: 3rem 0 5.5rem 0;
   }
 
-  .bottom-cta-info {
-    max-width: 620px;
-  }
-
-  .bottom-cta-eyebrow {
-    font-size: 0.85rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-link, #8b0000);
-    margin: 0 0 0.45rem 0;
-  }
-
-  .bottom-cta-title {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #0f172a;
-    letter-spacing: -0.02em;
-    margin: 0 0 0.65rem 0;
-    line-height: 1.25;
-  }
-
-  .bottom-cta-desc {
-    font-size: 1.05rem;
-    line-height: 1.65;
-    color: #475569;
-    margin: 0;
-  }
-
-  .bottom-cta-action {
+  .bottom-cta-wrap {
     display: flex;
     flex-direction: column;
     align-items: center;
-    flex-shrink: 0;
+    justify-content: center;
+    text-align: center;
+    gap: 1.25rem;
+  }
+
+  .bottom-cta-title {
+    font-size: 2.15rem;
+    font-weight: 700;
+    color: #0f172a;
+    letter-spacing: -0.02em;
+    margin: 0;
+    line-height: 1.2;
+    text-align: center;
   }
 
   .bottom-cta-btn {
@@ -147,7 +106,7 @@ import { siteConfig } from '../config/site';
     font-size: 0.95rem;
     font-weight: 600;
     letter-spacing: 0.01em;
-    padding: 0.7rem 1.6rem;
+    padding: 0.72rem 1.65rem;
     border-radius: 4px;
     border: 1px solid #700000;
     text-decoration: none !important;
@@ -161,29 +120,17 @@ import { siteConfig } from '../config/site';
     border-color: #550000;
   }
 
-  @media (max-width: 820px) {
+  @media (max-width: 680px) {
     .bottom-cta-section {
-      padding: 3.5rem 0;
-    }
-
-    .bottom-cta-card {
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 2.25rem 1.75rem;
-      gap: 1.75rem;
+      padding: 2rem 0 4.5rem 0;
     }
 
     .bottom-cta-title {
-      font-size: 1.65rem;
+      font-size: 1.8rem;
     }
 
-    .bottom-cta-action {
-      width: 100%;
-    }
-
-    .bottom-cta-btn {
-      width: 100%;
-      text-align: center;
+    .bottom-cta-wrap {
+      gap: 1rem;
     }
   }
 </style>

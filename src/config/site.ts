@@ -341,12 +341,12 @@ export const competitionLeadership: TeamMember[] = [
 ];
 
 export const teacherAdvisors: TeamMember[] = [
-  {
-    name: "Mr. Richard Wertz",
-    email: "ricwer@bergen.org",
-  },
-  {
-    name: "Dr. Michael Abramson",
-    email: "micabra@bergen.org",
-  },
+  // {
+  //   name: "Mr. Richard Wertz",
+  //   email: "ricwer@bergen.org",
+  // },
+  // {
+  //   name: "Dr. Michael Abramson",
+  //   email: "micabra@bergen.org",
+  // },
 ];

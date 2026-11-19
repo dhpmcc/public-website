@@ -323,7 +323,7 @@ export const jvl_creative: Sponsor = {
 
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [jane_street, art_of_problem_solving, columbia_university, eleven_labs, mongodb, non_trivial, rise_research, pcbway],
+  inKind: [jane_street, art_of_problem_solving, columbia_university, eleven_labs, mongodb, non_trivial, rise_research, pcbway, jvl_creative],
 };
 
 export interface TeamMember {

@@ -321,9 +321,15 @@ export const jvl_creative: Sponsor = {
   logo: "/images/sponsors/jvl_creative.png",
 };
 
+export const interview_cake: Sponsor = {
+  name: "Interview Cake",
+  url: "https://www.interviewcake.com/",
+  logo: "/images/sponsors/interview_cake.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [jane_street, art_of_problem_solving, columbia_university, eleven_labs, mongodb, non_trivial, rise_research, pcbway, jvl_creative],
+  inKind: [jane_street, art_of_problem_solving, columbia_university, eleven_labs, mongodb, non_trivial, rise_research, interview_cake, pcbway, jvl_creative],
 };
 
 export interface TeamMember {

@@ -327,9 +327,15 @@ export const interview_cake: Sponsor = {
   logo: "/images/sponsors/interview_cake.png",
 };
 
+export const brilliant: Sponsor = {
+  name: "Brilliant",
+  url: "https://www.brilliant.org/",
+  logo: "/images/sponsors/brilliant.png",
+};
+
 export const sponsors: SponsorsConfig = {
   main: [bca],
-  inKind: [jane_street, art_of_problem_solving, columbia_university, eleven_labs, mongodb, non_trivial, rise_research, interview_cake, pcbway, jvl_creative],
+  inKind: [jane_street, columbia_university, eleven_labs, art_of_problem_solving, brilliant, mongodb, non_trivial, rise_research, interview_cake, pcbway, jvl_creative],
 };
 
 export interface TeamMember {
